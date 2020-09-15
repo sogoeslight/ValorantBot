@@ -1,0 +1,2 @@
+pyautogui==0.9.50
+colorthief==0.2.1
