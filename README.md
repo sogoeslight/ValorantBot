@@ -23,7 +23,7 @@ Currently supposed only for Deathmatches
 - [Valorant](https://playvalorant.com/en-us/ "https://playvalorant.com/en-us/")
 - [Python](https://www.python.org/downloads/ "https://www.python.org/downloads/")
 - [PC](https://downloadmoreram.com/ "Go on, do it")
-- Full HD screen
+- Screen
 
 ## Setup:
 1. In bot directory -> command line: `pip install -r requirements.txt`
