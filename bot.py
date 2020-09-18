@@ -2,10 +2,12 @@ import menu
 import settings
 import gameplay
 import valorant
+import stats
 
 
 def main():
-    print()
+    print("\nBot successfully started")
+    # stats.compose_stats()
     if not settings.valorant_is_opened:
         valorant.launch()
         settings.valorant_is_opened = True

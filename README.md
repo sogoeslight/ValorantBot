@@ -7,6 +7,8 @@
     - ...
     - Goes well with pizza!
 - Coming soon:
+    - Statistics
+    - Timer
     - Handling updates
     - Support of different game modes
     - Support of different screen resolutions
@@ -40,3 +42,4 @@ From a bot directory > `python bot.py`
 ## Hints:
 - To stop script press `ctrl+c` in console window
 - `alt+enter` shortcut switches Valorant to a windowed mode
+- Don't launch it by simply `bot.py`
