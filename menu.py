@@ -25,11 +25,11 @@ def play_again():
 
 def press_play():
     try:
-        x, y, w, h = pyautogui.locateOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/play.png', confidence=0.9)
     except TypeError:
         time.sleep(1)
-        x, y, w, h = pyautogui.locateOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/play.png', confidence=0.85)
     # sometimes Play button doesn't presses
     m.click(x + random.uniform(10, w - 10), y + random.uniform(5, h - 5))
@@ -39,11 +39,11 @@ def press_play():
 
 def select_game_mode():
     try:
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/deathmatch.png', confidence=0.65)
     except TypeError:
         time.sleep(1)
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/deathmatch.png', confidence=0.60)
     m.click(x, y)
     print("Game mode selected")
@@ -51,11 +51,11 @@ def select_game_mode():
 
 def close_lobby():
     try:
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/close_lobby.png', confidence=0.9)
     except TypeError:
         time.sleep(1)
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/close_lobby.png', confidence=0.85)
     m.click(x, y)
     print("Lobby closed")
@@ -63,11 +63,11 @@ def close_lobby():
 
 def start_search():
     try:
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/small_start.png', confidence=0.8)
     except TypeError:
         time.sleep(1)
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/small_start.png', confidence=0.85)
     m.click(x, y)
     print("Searching game...")
@@ -75,15 +75,15 @@ def start_search():
 
 def queueing():
     try:
-        settings.safe_point = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=0.95)
     except TypeError:
-        settings.safe_point = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=0.8)
 
     # TODO: handle it somehow
     # try:
-    #     x, y, w, h = pyautogui.locateOnScreen('resources/imagesToLocate/' + settings.resolution_string
+    #     x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
     #                                           + '/party_restricted.png', confidence=0.7)
     #     while True:
     #         screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
@@ -97,7 +97,7 @@ def queueing():
     #     pass
 
     try:
-        x, y, w, h = pyautogui.locateOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/in_queue.png', confidence=0.55)
 
         while True:
@@ -124,13 +124,13 @@ def check_chat_error():
 
 def skip_stats():
     try:
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/skip.png', confidence=0.75)
         m.click(x, y)
     except TypeError:
         try:
             time.sleep(1)
-            x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+            x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png', confidence=0.7)
             m.click(x, y)
         except TypeError:
@@ -141,16 +141,16 @@ def skip_stats():
 
 def press_play_again():
     try:
-        x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/play_again.png', confidence=0.7)
     except TypeError:
         try:
             time.sleep(1)
-            x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+            x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/play_again.png', confidence=0.6)
         except TypeError:
             time.sleep(1)
-            x, y = pyautogui.locateCenterOnScreen('resources/imagesToLocate/' + settings.resolution_string
+            x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/play_again.png', confidence=0.5)
 
     m.click(x, y)
