@@ -8,7 +8,7 @@ import valorant
 def main():
     print("\nBot successfully started")
     print("Your screen resolution is " + str(settings.resolution_y) + "p\n")
-    # stats.compose_stats()
+    # stats.timer()
     try:
         if not settings.valorant_is_opened:
             valorant.launch()
@@ -28,7 +28,7 @@ def main():
                 menu.play_again()
     except KeyboardInterrupt:
         print("\nBot was manually stopped")
-        stats.show()
+        # stats.show()
 
 
 main()

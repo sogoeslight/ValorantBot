@@ -1,8 +1,9 @@
 import cv2
 import time
+import stats
 import random
-import pyautogui
 import settings
+import pyautogui
 import ingame_error as err
 from helpers import mouse as m
 from helpers import keyboard as k
@@ -78,6 +79,7 @@ def simulate(enable_simulation):
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
                 print("\nMatch has ended")
+                stats.count_game()
                 break
         except TypeError:
             pass
@@ -89,6 +91,7 @@ def simulate(enable_simulation):
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
                 print("\nMatch has ended")
+                stats.count_game()
                 break
         except TypeError:
             pass

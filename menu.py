@@ -74,6 +74,7 @@ def start_search():
 
 
 def queueing():
+
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=.85)
