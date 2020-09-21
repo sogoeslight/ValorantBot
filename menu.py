@@ -104,10 +104,11 @@ def queueing(again):
     #             break
     # except TypeError:
     #     pass
+
     while True:
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + needed_pic, confidence=.75)
+                                                  + needed_pic, confidence=.8)
             thr.do_run = False
             thr.join()
             print("Found!")
