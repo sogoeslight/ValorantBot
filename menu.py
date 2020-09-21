@@ -1,7 +1,9 @@
 import cv2
 import time
+import stats
 import random
 import settings
+import threading
 import pyautogui
 import ingame_error as err
 from helpers import mouse as m
@@ -14,13 +16,13 @@ def start_game():
     select_game_mode()
     close_lobby()
     start_search()
-    queueing()
+    queueing(False)
 
 
 def play_again():
     skip_stats()
     press_play_again()
-    queueing()
+    queueing(True)
 
 
 def press_play():
@@ -73,7 +75,14 @@ def start_search():
     print("Searching game...")
 
 
-def queueing():
+def queueing(again):
+    thr = threading.Thread(name="queue_timer", target=stats.tick, args=("queue",), daemon=True)
+    thr.start()
+
+    if again:
+        needed_pic = "/match_found_again.png"
+    else:
+        needed_pic = "/match_found.png"
 
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
@@ -95,21 +104,16 @@ def queueing():
     #             break
     # except TypeError:
     #     pass
-
-    try:
-        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/in_queue.png', confidence=.55)
-
-        while True:
-            screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            if colors.compare_colors(colors.list_for_party_not_ready,
-                                     'resources/temp/control_picture_1.png'):
-                print("Found!\n")
-                break
-            else:
-                time.sleep(settings.checks_refresh_rate)
-    except TypeError:
-        pass
+    while True:
+        try:
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+                                                  + needed_pic, confidence=.75)
+            thr.do_run = False
+            thr.join()
+            print("Found!")
+            break
+        except TypeError:
+            time.sleep(settings.checks_refresh_rate)
 
     # check_chat_error()
 

@@ -4,10 +4,10 @@
 - Done:
     - Anti-afk simulation!
     - Relaunches game in case of error and continues working!
+    - Statistics!
     - ...
     - Goes well with pizza!
 - Coming soon:
-    - Statistics
     - Timer
     - Handling updates
     - Support of different game modes
@@ -17,7 +17,8 @@
     - Special mode "Bilbo Teabaggins"
 
 
-Currently supposed only for Deathmatches
+Supposed only for Deathmatches
+Currently supports only FullHD and QHD screens
 
 ---
 

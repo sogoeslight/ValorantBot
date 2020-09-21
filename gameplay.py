@@ -3,6 +3,7 @@ import time
 import stats
 import random
 import settings
+import threading
 import pyautogui
 import ingame_error as err
 from helpers import mouse as m
@@ -11,6 +12,9 @@ from helpers import screen, colors
 
 
 def simulate(enable_simulation):
+    thr = threading.Thread(name="match_timer", target=stats.tick, args=("match",), daemon=True)
+    thr.start()
+
     time.sleep(settings.average_match_load_time + 15)
 
     # check for in game errors
@@ -78,7 +82,9 @@ def simulate(enable_simulation):
                                                   + '/skip.png', confidence=.65)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
-                print("\nMatch has ended")
+                print("\nMatch has ended1")
+                thr.do_run = False
+                thr.join()
                 stats.count_game()
                 break
         except TypeError:
@@ -90,7 +96,9 @@ def simulate(enable_simulation):
                                                   + '/match_end.png', confidence=.8)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
-                print("\nMatch has ended")
+                print("\nMatch has ended2")
+                thr.do_run = False
+                thr.join()
                 stats.count_game()
                 break
         except TypeError:
