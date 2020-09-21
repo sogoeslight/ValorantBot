@@ -15,7 +15,7 @@ def simulate(enable_simulation):
     # check for in game errors
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/quit.png', confidence=0.8)
+                                              + '/quit.png', confidence=.8)
         screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
         if colors.compare_colors(colors.list_generic_error,
                                  'resources/temp/control_picture_1.png'):
@@ -37,7 +37,7 @@ def simulate(enable_simulation):
         # check for in game errors
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/quit.png', confidence=0.8)
+                                                  + '/quit.png', confidence=.8)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_generic_error,
                                      'resources/temp/control_picture_1.png'):
@@ -50,7 +50,7 @@ def simulate(enable_simulation):
         try:
             m.move_to(settings.safe_point[0], settings.safe_point[1], random.uniform(0.1, 0.2))
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/guns/phantom.png', confidence=0.85)
+                                                  + '/guns/phantom.png', confidence=.85)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
 
             screen.shot('resources/temp/control_picture_1.png', x, y, 30, 30)
@@ -63,7 +63,7 @@ def simulate(enable_simulation):
         # check inactivity
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/inactivity.png', confidence=0.8)
+                                                  + '/inactivity.png', confidence=.8)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_inactivity_message,
                                      'resources/temp/control_picture_1.png'):
@@ -74,7 +74,7 @@ def simulate(enable_simulation):
         # check for end of the match
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/skip.png', confidence=0.65)
+                                                  + '/skip.png', confidence=.65)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
                 print("\nMatch has ended")
@@ -85,7 +85,7 @@ def simulate(enable_simulation):
         # check for end of the match #2
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/match_end.png', confidence=0.8)
+                                                  + '/match_end.png', confidence=.8)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
                 print("\nMatch has ended")
@@ -134,66 +134,66 @@ def buy():
 def buy_phantom():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/phantom.png', confidence=0.75)
+                                              + '/guns/phantom.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/phantom.png', confidence=0.60)
+                                              + '/guns/phantom.png', confidence=.60)
         m.click(x, y)
 
 
 def buy_vandal():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/vandal.png', confidence=0.75)
+                                              + '/guns/vandal.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/vandal.png', confidence=0.60)
+                                              + '/guns/vandal.png', confidence=.60)
         m.click(x, y)
 
 
 def buy_awp():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/awp.png', confidence=0.75)
+                                              + '/guns/awp.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/awp.png', confidence=0.60)
+                                              + '/guns/awp.png', confidence=.60)
         m.click(x, y)
 
 
 def buy_shorty():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/shorty.png', confidence=0.75)
+                                              + '/guns/shorty.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/shorty.png', confidence=0.60)
+                                              + '/guns/shorty.png', confidence=.60)
         m.click(x, y)
 
 
 def buy_usp():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/usp.png', confidence=0.75)
+                                              + '/guns/usp.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/usp.png', confidence=0.60)
+                                              + '/guns/usp.png', confidence=.60)
         m.click(x, y)
 
 
 def buy_deagle():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/deagle.png', confidence=0.75)
+                                              + '/guns/deagle.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/deagle.png', confidence=0.60)
+                                              + '/guns/deagle.png', confidence=.60)
         m.click(x, y)
 
 
@@ -201,7 +201,7 @@ def buy_deagle():
 def buy_first_ability():
     m.click(592, 950)
     # x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-    #                                       + '/.png', confidence=0.8)
+    #                                       + '/.png', confidence=.8)
     # m.click(x, y)
 
 
@@ -209,5 +209,5 @@ def buy_first_ability():
 def buy_second_ability():
     m.click(960, 950)
     # x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-    #                                       + '/.png', confidence=0.8)
+    #                                       + '/.png', confidence=.8)
     # m.click(x, y)

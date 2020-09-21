@@ -21,7 +21,7 @@ def launch():
         # Valorant launched and match continues
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/hundred_hp.png', confidence=0.75)
+                                                  + '/hundred_hp.png', confidence=.75)
 
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if pyautogui.pixelMatchesColor(int(x + w - 3), int(y + h / 2), colors.almost_white, tolerance=4):
@@ -35,7 +35,7 @@ def launch():
         # Valorant launched and in the main menu
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/game_launched.png', confidence=0.8)
+                                                  + '/game_launched.png', confidence=.8)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_game_launch,
                                      'resources/temp/control_picture_1.png'):

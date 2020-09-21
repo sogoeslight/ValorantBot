@@ -41,11 +41,11 @@ def press_play():
 def select_game_mode():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/deathmatch.png', confidence=0.65)
+                                              + '/deathmatch.png', confidence=.65)
     except TypeError:
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/deathmatch.png', confidence=0.60)
+                                              + '/deathmatch.png', confidence=.60)
     m.click(x, y)
     print("Game mode selected")
 
@@ -53,11 +53,11 @@ def select_game_mode():
 def close_lobby():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/close_lobby.png', confidence=0.9)
+                                              + '/close_lobby.png', confidence=.9)
     except TypeError:
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/close_lobby.png', confidence=0.85)
+                                              + '/close_lobby.png', confidence=.85)
     m.click(x, y)
     print("Lobby closed")
 
@@ -65,11 +65,11 @@ def close_lobby():
 def start_search():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/small_start.png', confidence=0.8)
+                                              + '/small_start.png', confidence=.8)
     except TypeError:
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/small_start.png', confidence=0.85)
+                                              + '/small_start.png', confidence=.85)
     m.click(x, y)
     print("Searching game...")
 
@@ -77,10 +77,9 @@ def start_search():
 def queueing():
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                             + '/friends.png', confidence=0.95)
+                                                             + '/friends.png', confidence=.85)
     except TypeError:
-        settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                             + '/friends.png', confidence=0.8)
+        pass
 
     # TODO: handle it somehow
     # try:
@@ -99,7 +98,7 @@ def queueing():
 
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/in_queue.png', confidence=0.55)
+                                              + '/in_queue.png', confidence=.55)
 
         while True:
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
@@ -126,13 +125,13 @@ def check_chat_error():
 def skip_stats():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/skip.png', confidence=0.75)
+                                              + '/skip.png', confidence=.75)
         m.click(x, y)
     except TypeError:
         try:
             time.sleep(1)
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                  + '/skip.png', confidence=0.7)
+                                                  + '/skip.png', confidence=.7)
             m.click(x, y)
         except TypeError:
             pass
@@ -146,25 +145,25 @@ def press_play_again():
         current_time = now.strftime("%H:%M:%S")
         print("Current Time =", current_time)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/play_again.png', confidence=0.6)
+                                              + '/play_again.png', confidence=.6)
         print("1")
     except TypeError:
         try:
             time.sleep(1)
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                  + '/play_again.png', confidence=0.5)
+                                                  + '/play_again.png', confidence=.5)
             print("2")
         except TypeError:
             try:
                 time.sleep(1)
                 x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                      + '/play_again.png', confidence=0.4)
+                                                      + '/play_again.png', confidence=.4)
                 print("3")
             except TypeError:
                 try:
                     time.sleep(1)
                     x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                          + '/play_again.png', confidence=0.35)
+                                                          + '/play_again.png', confidence=.35)
                     print("4")
                 except TypeError:
                     print("nope")
