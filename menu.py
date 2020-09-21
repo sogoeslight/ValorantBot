@@ -88,10 +88,8 @@ def queueing(again):
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=.85)
-        print("0", settings.safe_point[0], settings.safe_point[1])
     except TypeError:
-        settings.safe_point = settings.resolution_x * 0.95, settings.resolution_y * 0.05
-        print("1", settings.safe_point[0], settings.safe_point[1])
+        settings.safe_point = settings.resolution_x * 0.92, settings.resolution_y * 0.1
 
     # TODO: handle it somehow
     # try:
@@ -108,7 +106,6 @@ def queueing(again):
     # except TypeError:
     #     pass
 
-    print("2", settings.safe_point[0], settings.safe_point[1])
     m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     while True:
