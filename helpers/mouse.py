@@ -17,7 +17,7 @@ def move_to(x, y, speed=None):
     if speed is None:
         movement_time = random.uniform(0.4, 0.7)
     else:
-        movement_time = speed
+        movement_time = speed + random.uniform(0.05, 0.1)
 
     randomize_coordinates(x, y)
     pyautogui.moveTo(x, y, movement_time)

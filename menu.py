@@ -7,6 +7,7 @@ import threading
 import pyautogui
 import ingame_error as err
 from helpers import mouse as m
+from helpers import keyboard as k
 from helpers import screen, colors
 
 
@@ -87,8 +88,10 @@ def queueing(again):
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=.85)
+        print("0", settings.safe_point[0], settings.safe_point[1])
     except TypeError:
-        pass
+        settings.safe_point = settings.resolution_x * 0.95, settings.resolution_y * 0.05
+        print("1", settings.safe_point[0], settings.safe_point[1])
 
     # TODO: handle it somehow
     # try:
@@ -104,6 +107,9 @@ def queueing(again):
     #             break
     # except TypeError:
     #     pass
+
+    print("2", settings.safe_point[0], settings.safe_point[1])
+    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     while True:
         try:
@@ -132,16 +138,31 @@ def skip_stats():
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/skip.png', confidence=.75)
         m.click(x, y)
+        print("Stats skipped")
     except TypeError:
         try:
             time.sleep(1)
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png', confidence=.7)
             m.click(x, y)
+            print("Stats skipped")
         except TypeError:
             pass
 
-    print("Stats skipped")
+
+def check_rewards():
+    try:
+        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+                                              + '/rewards.png', confidence=.75)
+        k.press_button('esc')
+    except TypeError:
+        try:
+            time.sleep(1)
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+                                                  + '/rewards.png', confidence=.7)
+            k.press_button('esc')
+        except TypeError:
+            print("Stats skipped")
 
 
 def press_play_again():
