@@ -27,11 +27,11 @@ def play_again():
 def press_play():
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/play.png', confidence=0.9)
+                                              + '/play.png', confidence=.85)
     except TypeError:
         time.sleep(1)
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/play.png', confidence=0.85)
+                                              + '/play.png', confidence=.8)
     # sometimes Play button doesn't presses
     m.click(x + random.uniform(10, w - 10), y + random.uniform(5, h - 5))
     m.click(x + random.uniform(10, w - 10), y + random.uniform(5, h - 5))
