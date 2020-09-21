@@ -11,7 +11,7 @@
     - Timer
     - Handling updates
     - Support of different game modes
-    - Support of different screen resolutions
+    - More screen resolutions
     - Trigger bot
     - App interface
     - Special mode "Bilbo Teabaggins"
