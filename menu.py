@@ -4,6 +4,7 @@ import random
 import settings
 import pyautogui
 import ingame_error as err
+from datetime import datetime
 from helpers import mouse as m
 from helpers import screen, colors
 
@@ -141,17 +142,32 @@ def skip_stats():
 
 def press_play_again():
     try:
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
+        print("Current Time =", current_time)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/play_again.png', confidence=0.7)
+                                              + '/play_again.png', confidence=0.6)
+        print("1")
     except TypeError:
         try:
             time.sleep(1)
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                  + '/play_again.png', confidence=0.6)
-        except TypeError:
-            time.sleep(1)
-            x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/play_again.png', confidence=0.5)
+            print("2")
+        except TypeError:
+            try:
+                time.sleep(1)
+                x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
+                                                      + '/play_again.png', confidence=0.4)
+                print("3")
+            except TypeError:
+                try:
+                    time.sleep(1)
+                    x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
+                                                          + '/play_again.png', confidence=0.35)
+                    print("4")
+                except TypeError:
+                    print("nope")
 
     m.click(x, y)
     print('"Play again" pressed')
