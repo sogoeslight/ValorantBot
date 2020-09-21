@@ -114,7 +114,7 @@ def buy():
     elif gun == 2:
         buy_deagle()
     print("Bought pistol")
-    time.sleep(0.3)
+    time.sleep(0.1)
 
     gun = random.randint(0, 2)
     time.sleep(random.uniform(0.3, 1))
@@ -126,7 +126,7 @@ def buy():
     elif gun == 2:
         buy_awp()
     print("Bought gun")
-    time.sleep(0.5)
+    time.sleep(0.2)
 
     k.press_button('b')
 

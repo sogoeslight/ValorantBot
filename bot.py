@@ -28,7 +28,7 @@ def main():
                 menu.play_again()
     except KeyboardInterrupt:
         print("\nBot was manually stopped")
-        # print statistics
+        stats.show()
 
 
 main()
