@@ -22,6 +22,7 @@ def start_game():
 
 def play_again():
     skip_stats()
+    check_rewards()
     press_play_again()
     queueing(True)
 
@@ -152,14 +153,16 @@ def check_rewards():
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/rewards.png', confidence=.75)
         k.press_button('esc')
+        print("Rewards acquired")
     except TypeError:
         try:
             time.sleep(1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/rewards.png', confidence=.7)
             k.press_button('esc')
+            print("Rewards acquired")
         except TypeError:
-            print("Stats skipped")
+            pass
 
 
 def press_play_again():
