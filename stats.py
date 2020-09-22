@@ -33,6 +33,7 @@ def tick(type_of_timer=None):
         while getattr(thr, "do_run", True):
             time_handling_errors += 1
             time.sleep(1)
+            # print(time_handling_errors)
 
 
 def count_game():

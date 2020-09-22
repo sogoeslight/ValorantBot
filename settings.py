@@ -29,7 +29,7 @@ average_valorant_closing_time = 12  # only ints!!!
 # Unrated = 0, Competitive = 1, Spike Rush = 2, DeathMatch = 3
 # For now supposed to work only with DM tho, so
 game_mode = 3
-valorant_is_opened = False
+valorant_is_opened = True
 first_game = True
 was_relaunched_after_error = False
 enable_simulation = False
