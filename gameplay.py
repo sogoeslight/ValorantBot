@@ -72,8 +72,8 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png',
-                                                  region=(int(settings.resolution_x * 0.4), int(settings.resolution_y * 0.7),
-                                                          int(settings.resolution_x * 0.17), int(settings.resolution_y * 0.3)),
+                                                  region=(int(settings.resolution_x * .4), int(settings.resolution_y * .7),
+                                                          int(settings.resolution_x * .17), int(settings.resolution_y * .3)),
                                                   confidence=.7)
             print("\nMatch has ended")
             thr.do_run = False
