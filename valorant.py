@@ -35,10 +35,10 @@ def launch():
         # Valorant launched and in the main menu
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/game_launched.png', confidence=.8)
+                                                  + '/game_launched.png', confidence=.7)
             screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_game_launch,
-                                     'resources/temp/control_picture_1.png'):
+                                     'resources/temp/control_picture_1.png', tolerance=5):
                 print("\nLaunched successfully into the menu\n")
                 settings.first_game = True
                 break
