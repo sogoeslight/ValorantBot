@@ -44,13 +44,15 @@ def press_play():
 def select_game_mode():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/deathmatch.png', confidence=.65)
+                                              + '/deathmatch.png', confidence=.6)
+        m.click(x, y)
+        print("Game mode selected")
     except TypeError:
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/deathmatch.png', confidence=.60)
-    m.click(x, y)
-    print("Game mode selected")
+                                              + '/deathmatch.png', confidence=.55)
+        m.click(x, y)
+        print("Game mode selected")
 
 
 def close_lobby():
