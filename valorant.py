@@ -15,7 +15,7 @@ def launch():
     exit_command_line()
     time.sleep(settings.average_valorant_load_time)
     # so Valorant window will be focused in case any shit happened
-    m.click(settings.safe_point[0], settings.safe_point[1])
+    m.click_on_center(settings.safe_point[0], settings.safe_point[1])
 
     while True:
         check_update()
@@ -57,7 +57,7 @@ def check_update():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/update_play.png', confidence=.7)
-        m.click(x, y)
+        m.click_on_center(x, y)
     except TypeError:
         pass
 

@@ -28,6 +28,7 @@ def play_again():
 
 
 def press_play():
+    # click_on('/play.png', 0.95, "Play button pressed",)
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/play.png', confidence=.85)
@@ -36,8 +37,8 @@ def press_play():
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/play.png', confidence=.8)
     # sometimes Play button doesn't presses
-    m.click(x + random.uniform(10, w - 10), y + random.uniform(5, h - 5))
-    m.click(x + random.uniform(10, w - 10), y + random.uniform(5, h - 5))
+    m.click_on_area(x, y, w, h, 10, 5)
+    m.click_on_area(x, y, w, h, 10, 5)
     print('Play button pressed')
 
 
@@ -45,13 +46,13 @@ def select_game_mode():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/deathmatch.png', confidence=.6)
-        m.click(x, y)
+        m.click_on_center(x, y)
         print("Game mode selected")
     except TypeError:
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/deathmatch.png', confidence=.55)
-        m.click(x, y)
+        m.click_on_center(x, y)
         print("Game mode selected")
 
 
@@ -63,7 +64,7 @@ def close_lobby():
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/close_lobby.png', confidence=.85)
-    m.click(x, y)
+    m.click_on_center(x, y)
     print("Lobby closed")
 
 
@@ -75,7 +76,7 @@ def start_search():
         time.sleep(1)
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/small_start.png', confidence=.85)
-    m.click(x, y)
+    m.click_on_center(x, y)
     print("Searching game...")
 
 
@@ -138,14 +139,14 @@ def skip_stats():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/skip.png', confidence=.72)
-        m.click(x, y)
+        m.click_on_center(x, y)
         print("Stats skipped")
     except TypeError:
         try:
             time.sleep(1)
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png', confidence=.7)
-            m.click(x, y)
+            m.click_on_center(x, y)
             print("Stats skipped")
         except TypeError:
             pass
@@ -170,24 +171,62 @@ def check_rewards():
 
 def press_play_again():
     x = None
-    conf = .65
+    conf = .7
 
     while x is None:
         try:
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/play_again.png', confidence=conf)
-            m.click(x, y)
-            print('"Play again" pressed')
+            m.click_on_center(x, y)
+            print('"Play again" pressed', conf)
             break
         except TypeError:
             try:
                 x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                       + '/play_again_1.png', confidence=conf)
-                m.click(x, y)
-                print('"Play again" pressed')
+                m.click_on_center(x, y)
+                print('"Play again" pressed', conf)
                 break
             except TypeError:
                 pass
 
         conf -= .01
         time.sleep(0.2)
+
+
+# TODO: regions
+def click_on(pic, conf, message, region=None, amount_of_clicks=None, rand_x=None, rand_y=None):
+    x = None
+
+    while x is None:
+        try:
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+                                                  + pic, confidence=conf)
+            m.click_on_center(x, y)
+            print(message)
+            break
+        except TypeError:
+            pass
+
+        conf -= .01
+        time.sleep(0.2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
