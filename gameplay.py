@@ -21,15 +21,10 @@ def simulate(enable_simulation):
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/quit.png', confidence=.8)
-        screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-        if colors.compare_colors(colors.list_generic_error,
-                                 'resources/temp/control_picture_1.png'):
-            print("\nError occurred\n")
-            err.handle()
-        else:
-            buy()
+        print("\nError occurred\n")
+        err.handle()
     except TypeError:
-        pass
+        buy()
 
     # Approximately after 45 seconds game counts you as an inactive player
     while True:
@@ -43,11 +38,8 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/quit.png', confidence=.8)
-            screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            if colors.compare_colors(colors.list_generic_error,
-                                     'resources/temp/control_picture_1.png'):
-                print("\nError occurred\n")
-                err.handle()
+            print("\nError occurred\n")
+            err.handle()
         except TypeError:
             pass
 
