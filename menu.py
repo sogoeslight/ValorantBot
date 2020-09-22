@@ -62,7 +62,6 @@ def queueing(again):
     except TypeError:
         pass
 
-    print(settings.safe_point)
     m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     if again:
