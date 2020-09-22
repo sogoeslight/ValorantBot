@@ -11,7 +11,7 @@ elif resolution_y == 1440:
     resolution_string = "QHD"
     border = 20
 
-safe_point = resolution_x * 0.95, resolution_y * 0.05
+safe_point = resolution_x * 0.9, resolution_y * 0.13
 
 valorant_location = '"C:\Riot Games\Riot Client\RiotClientServices.exe" --launch-product=valorant ' \
                     '--launch-patchline=live '

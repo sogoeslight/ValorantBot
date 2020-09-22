@@ -89,11 +89,13 @@ def queueing(again):
         needed_pic = "/match_found.png"
 
     try:
-        settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                             + '/friends.png', confidence=.85)
-        m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
+        pos = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
+                                             + '/friends.png', confidence=.85)
+        settings.safe_point = pos[0], pos[1]
     except TypeError:
-        m.move_to(settings.resolution_x * 0.92, settings.resolution_y * 0.1, 0.1)
+        pass
+
+    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     # TODO: handle it somehow
     # try:

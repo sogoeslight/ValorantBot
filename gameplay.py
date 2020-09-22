@@ -45,7 +45,7 @@ def simulate(enable_simulation):
 
         # check if did not close buy window
         try:
-            m.move_to(settings.safe_point[0], settings.safe_point[1], random.uniform(0.1, 0.2))
+            m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/guns/phantom.png', confidence=.7)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
@@ -108,7 +108,7 @@ def simulate_movements():
 
 def buy():
     k.press_button('b')
-    m.move_to(settings.safe_point[0], settings.safe_point[1], random.uniform(0.1, 0.2))
+    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     gun = random.randint(0, 2)
     time.sleep(random.uniform(0.15, 0.25))
 
