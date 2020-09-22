@@ -29,6 +29,7 @@ Currently supports only FullHD and QHD screens
 - Screen
 
 ## Setup:
+0. Download last release .zip archive and unzip it anywhere
 1. In bot directory -> command line: `pip install -r requirements.txt`
 2. Valorant -> Settings -> Video -> Display Mode: **Windowed**, Resolution - your native resolution, so game should be
 on whole screen, but in window
@@ -42,5 +43,4 @@ From a bot directory > `python bot.py`
 
 ## Hints:
 - To stop script press `ctrl+c` in console window
-- `alt+enter` shortcut switches Valorant to a windowed mode
 - Don't launch it by simply `bot.py`
