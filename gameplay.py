@@ -55,7 +55,7 @@ def simulate(enable_simulation):
         try:
             m.move_to(settings.safe_point[0], settings.safe_point[1], random.uniform(0.1, 0.2))
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/guns/phantom.png', confidence=.85)
+                                                  + '/guns/phantom.png', confidence=.7)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
 
             screen.shot('resources/temp/control_picture_1.png', x, y, 30, 30)
