@@ -55,7 +55,6 @@ def queueing(again):
     thr = threading.Thread(name="queue_timer", target=stats.tick, args=("queue",), daemon=True)
     thr.start()
 
-    # TODO: vinesti
     try:
         pos = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                              + '/friends.png', confidence=.85)
@@ -99,7 +98,7 @@ def skip_stats():
     find_and_click_on('/skip.png', 0.9, "Stats skipped", region)
 
 
-# TODO: double check - when they take place
+# TODO: double check - when they take place, add region
 def check_rewards():
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
@@ -108,7 +107,6 @@ def check_rewards():
         print("Rewards acquired")
     except TypeError:
         try:
-            time.sleep(1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/rewards.png', confidence=.7)
             k.press_button('esc')
@@ -154,7 +152,7 @@ def click_on(pic, conf, message, region, amount_of_clicks=None):
         for i in range(amount_of_clicks):
             m.click_on_area(x, y, w, h)
 
-    print(message, conf)
+    print(message)
 
 
 
