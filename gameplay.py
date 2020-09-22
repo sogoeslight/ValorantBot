@@ -119,27 +119,24 @@ def buy():
 
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
-    k.press_button('b')
-    time.sleep(0.2)
     m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     buy_gun(pistols[pistol], .85)
     buy_gun(guns[gun], .85)
-    time.sleep(0.2)
-    k.press_button('b')
 
 
 def buy_gun(gun, conf):
-    try:
-        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/' + gun + '.png', confidence=conf)
-        m.click_on_center(x, y)
-        # print("Bought", gun, conf)
-    except TypeError:
+    k.press_button('b')
+    while conf > .55:
         try:
-            conf -= .05
-            buy_gun(gun, conf)
+            x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
+                                                  + '/guns/' + gun + '.png', confidence=conf)
+            m.click_on_center(x, y)
+            print("Bought", gun, conf)
+            break
         except TypeError:
-            pass
+            conf -= 0.5
+
+    k.press_button('b')
 
 
 # TODO: add ability 1

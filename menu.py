@@ -127,6 +127,7 @@ def find_and_click_on(pic, conf, message, region, second_pic=None, amount_of_cli
     while x is None:
         try:
             if conf < .4:
+                print(conf)
                 break
             click_on(pic, conf, message, region, amount_of_clicks)
             break
