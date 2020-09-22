@@ -58,10 +58,11 @@ def queueing(again):
     try:
         pos = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                              + '/friends.png', confidence=.85)
-        settings.safe_point = pos
+        settings.safe_point = pos[0], pos[1]
     except TypeError:
         pass
 
+    print(settings.safe_point)
     m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     if again:

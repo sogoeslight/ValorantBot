@@ -113,18 +113,17 @@ def simulate_movements():
 # def simulate_shooting():
 
 def buy():
-    k.press_button('b')
-    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
 
     pistols = ["shorty", "usp", "deagle"]
     guns = ["phantom", "vandal", "awp"]
 
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
-
+    k.press_button('b')
+    time.sleep(0.2)
+    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     buy_gun(pistols[pistol], .85)
     buy_gun(guns[gun], .85)
-
     time.sleep(0.2)
     k.press_button('b')
 
@@ -134,7 +133,7 @@ def buy_gun(gun, conf):
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/guns/' + gun + '.png', confidence=conf)
         m.click_on_center(x, y)
-        print("Bought", gun, conf)
+        # print("Bought", gun, conf)
     except TypeError:
         try:
             conf -= .05
