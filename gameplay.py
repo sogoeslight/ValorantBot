@@ -63,8 +63,8 @@ def simulate(enable_simulation):
 
         # check inactivity
         try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/inactivity.png', confidence=.95)
+            # x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+            #                                       + '/inactivity.png', confidence=.95)
             buy()
         except TypeError:
             pass
@@ -122,15 +122,8 @@ def buy():
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
 
-    try:
-        buy_gun(pistols[pistol], .75)
-    except TypeError:
-        pass
-
-    try:
-        buy_gun(guns[gun], .75)
-    except TypeError:
-        pass
+    buy_gun(pistols[pistol], .75)
+    buy_gun(guns[gun], .75)
 
     time.sleep(0.2)
     k.press_button('b')
