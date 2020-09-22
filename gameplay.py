@@ -63,8 +63,8 @@ def simulate(enable_simulation):
 
         # check inactivity
         try:
-            # x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-            #                                       + '/inactivity.png', confidence=.95)
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
+                                                  + '/inactivity.png', confidence=.95)
             buy()
         except TypeError:
             pass
