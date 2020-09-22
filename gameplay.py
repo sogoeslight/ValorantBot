@@ -79,28 +79,32 @@ def simulate(enable_simulation):
         # check for end of the match
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/skip.png', confidence=.65)
-            screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
-                print("\nMatch has ended1")
-                thr.do_run = False
-                thr.join()
-                stats.count_game()
-                break
+                                                  + '/skip.png',
+                                                  region=(settings.resolution_x * 0.4, settings.resolution_y * 0.5,
+                                                          settings.resolution_x * 0.2, settings.resolution_y * 0.5)
+                                                  , confidence=.7)
+            print("\nMatch has ended")
+            thr.do_run = False
+            thr.join()
+            stats.count_game()
+            break
         except TypeError:
             pass
 
         # check for end of the match #2
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/match_end.png', confidence=.8)
-            screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
-                print("\nMatch has ended2")
-                thr.do_run = False
-                thr.join()
-                stats.count_game()
-                break
+                                                  + '/match_end.png',
+                                                  region=(settings.resolution_x * 0.25, settings.resolution_y * 0.25,
+                                                          settings.resolution_x * 0.75, settings.resolution_y * 0.75)
+                                                  , confidence=.85)
+            # screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
+            # if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
+            print("\nMatch has ended")
+            thr.do_run = False
+            thr.join()
+            stats.count_game()
+            break
         except TypeError:
             pass
 

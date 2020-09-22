@@ -89,8 +89,9 @@ def queueing(again):
     try:
         settings.safe_point = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                              + '/friends.png', confidence=.85)
+        m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     except TypeError:
-        pass
+        m.move_to(settings.resolution_x * 0.92, settings.resolution_y * 0.1, 0.1)
 
     # TODO: handle it somehow
     # try:
@@ -106,8 +107,6 @@ def queueing(again):
     #             break
     # except TypeError:
     #     pass
-
-    m.move_to(settings.resolution_x * 0.92, settings.resolution_y * 0.1, 0.1)
 
     while True:
         try:
@@ -134,7 +133,7 @@ def check_chat_error():
 def skip_stats():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/skip.png', confidence=.75)
+                                              + '/skip.png', confidence=.72)
         m.click(x, y)
         print("Stats skipped")
     except TypeError:
