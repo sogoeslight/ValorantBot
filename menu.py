@@ -170,20 +170,24 @@ def check_rewards():
 
 def press_play_again():
     x = None
-    y = None
+    conf = .65
 
     while x is None:
         try:
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                  + '/play_again.png', confidence=.55)
+                                                  + '/play_again.png', confidence=conf)
+            m.click(x, y)
+            print('"Play again" pressed')
+            break
         except TypeError:
             try:
                 x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                                      + '/play_again_1.png', confidence=.55)
+                                                      + '/play_again_1.png', confidence=conf)
+                m.click(x, y)
+                print('"Play again" pressed')
+                break
             except TypeError:
                 pass
 
-        time.sleep(0.5)
-
-    m.click(x, y)
-    print('"Play again" pressed')
+        conf -= .01
+        time.sleep(0.2)

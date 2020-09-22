@@ -20,7 +20,7 @@ def simulate(enable_simulation):
     # check for in game errors
     try:
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/quit.png', confidence=.8)
+                                              + '/quit.png', confidence=.9)
         print("\nError occurred\n")
         thr.do_run = False
         thr.join()
@@ -39,7 +39,7 @@ def simulate(enable_simulation):
         # check for in game errors
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/quit.png', confidence=.8)
+                                                  + '/quit.png', confidence=.9)
             print("\nError occurred\n")
             thr.do_run = False
             thr.join()
@@ -64,11 +64,8 @@ def simulate(enable_simulation):
         # check inactivity
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/inactivity.png', confidence=.8)
-            screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            if colors.compare_colors(colors.list_inactivity_message,
-                                     'resources/temp/control_picture_1.png'):
-                buy()
+                                                  + '/inactivity.png', confidence=.95)
+            buy()
         except TypeError:
             pass
 
@@ -77,8 +74,8 @@ def simulate(enable_simulation):
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png',
                                                   region=(int(settings.resolution_x * 0.4), int(settings.resolution_y * 0.7),
-                                                          int(settings.resolution_x * 0.17), int(settings.resolution_y * 0.3))
-                                                  , confidence=.7)
+                                                          int(settings.resolution_x * 0.17), int(settings.resolution_y * 0.3)),
+                                                  confidence=.7)
             print("\nMatch has ended")
             thr.do_run = False
             thr.join()

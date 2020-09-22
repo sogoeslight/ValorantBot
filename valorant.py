@@ -18,6 +18,8 @@ def launch():
     m.click(settings.safe_point[0], settings.safe_point[1])
 
     while True:
+        check_update()
+
         # Valorant launched and match continues
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
@@ -46,9 +48,18 @@ def launch():
             pass
 
             print("Waiting for Valorant to launch...")
-            time.sleep(settings.checks_refresh_rate + 1)
+            time.sleep(settings.checks_refresh_rate + 1.5)
 
     settings.valorant_is_opened = True
+
+
+def check_update():
+    try:
+        x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
+                                              + '/update_play.png', confidence=.7)
+        m.click(x, y)
+    except TypeError:
+        pass
 
 
 def kill():
