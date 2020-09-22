@@ -22,6 +22,8 @@ def simulate(enable_simulation):
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                               + '/quit.png', confidence=.8)
         print("\nError occurred\n")
+        thr.do_run = False
+        thr.join()
         err.handle()
     except TypeError:
         buy()
@@ -39,6 +41,8 @@ def simulate(enable_simulation):
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/quit.png', confidence=.8)
             print("\nError occurred\n")
+            thr.do_run = False
+            thr.join()
             err.handle()
         except TypeError:
             pass

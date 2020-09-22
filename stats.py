@@ -1,4 +1,5 @@
 import time
+import settings
 import threading
 
 experience_farmed = 0
@@ -33,7 +34,6 @@ def tick(type_of_timer=None):
         while getattr(thr, "do_run", True):
             time_handling_errors += 1
             time.sleep(1)
-            # print(time_handling_errors)
 
 
 def count_game():
@@ -59,4 +59,5 @@ def show():
         print("Average search duration:",
               time.strftime("%M:%S", time.gmtime(time_in_queue / games_played)))
         print("Average match duration:",
-              time.strftime("%M:%S", time.gmtime((time_in_match - time_handling_errors) / games_played)))
+              time.strftime("%M:%S", time.gmtime((time_in_match - time_handling_errors -
+                                                  settings.average_match_load_time * games_played) / games_played)))
