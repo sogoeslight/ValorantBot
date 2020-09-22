@@ -80,8 +80,8 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/skip.png',
-                                                  region=(settings.resolution_x * 0.4, settings.resolution_y * 0.5,
-                                                          settings.resolution_x * 0.2, settings.resolution_y * 0.5)
+                                                  region=(int(settings.resolution_x * 0.4), int(settings.resolution_y * 0.7),
+                                                          int(settings.resolution_x * 0.17), int(settings.resolution_y * 0.3))
                                                   , confidence=.7)
             print("\nMatch has ended")
             thr.do_run = False
@@ -95,11 +95,9 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/match_end.png',
-                                                  region=(settings.resolution_x * 0.25, settings.resolution_y * 0.25,
-                                                          settings.resolution_x * 0.75, settings.resolution_y * 0.75)
+                                                  region=(int(settings.resolution_x * 0.4), int(settings.resolution_y * 0.25),
+                                                          int(settings.resolution_x * 0.17), int(settings.resolution_y * 0.2))
                                                   , confidence=.85)
-            # screen.shot('resources/temp/control_picture_1.png', x, y, w, h)
-            # if colors.compare_colors(colors.list_for_match_end, 'resources/temp/control_picture_1.png'):
             print("\nMatch has ended")
             thr.do_run = False
             thr.join()
