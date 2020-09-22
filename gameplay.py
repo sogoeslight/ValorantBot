@@ -147,66 +147,66 @@ def buy():
 def buy_phantom():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/phantom.png', confidence=.75)
+                                              + '/guns/phantom.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/phantom.png', confidence=.60)
+                                              + '/guns/phantom.png', confidence=.5)
         m.click(x, y)
 
 
 def buy_vandal():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/vandal.png', confidence=.75)
+                                              + '/guns/vandal.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/vandal.png', confidence=.60)
+                                              + '/guns/vandal.png', confidence=.50)
         m.click(x, y)
 
 
 def buy_awp():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/awp.png', confidence=.75)
+                                              + '/guns/awp.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/awp.png', confidence=.60)
+                                              + '/guns/awp.png', confidence=.50)
         m.click(x, y)
 
 
 def buy_shorty():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/shorty.png', confidence=.75)
+                                              + '/guns/shorty.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/shorty.png', confidence=.60)
+                                              + '/guns/shorty.png', confidence=.50)
         m.click(x, y)
 
 
 def buy_usp():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/usp.png', confidence=.75)
+                                              + '/guns/usp.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/usp.png', confidence=.60)
+                                              + '/guns/usp.png', confidence=.50)
         m.click(x, y)
 
 
 def buy_deagle():
     try:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/deagle.png', confidence=.75)
+                                              + '/guns/deagle.png', confidence=.7)
         m.click(x, y)
     except TypeError:
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
-                                              + '/guns/deagle.png', confidence=.60)
+                                              + '/guns/deagle.png', confidence=.50)
         m.click(x, y)
 
 

@@ -5,7 +5,7 @@ experience_farmed = 0
 time_bot_working = 0
 time_in_queue = 0
 time_in_match = 0
-error_handling_time = 0
+time_handling_errors = 0
 games_played = 0
 
 
@@ -14,24 +14,24 @@ def daemon_timer():
     thr.start()
 
 
-def tick(queue_or_match=None):
-    global time_bot_working, time_in_match, time_in_queue, error_handling_time
+def tick(type_of_timer=None):
+    global time_bot_working, time_in_match, time_in_queue, time_handling_errors
     thr = threading.currentThread()
-    if queue_or_match is None:
+    if type_of_timer is None:
         while getattr(thr, "do_run", True):
             time_bot_working += 1
             time.sleep(1)
-    elif queue_or_match == "match":
+    elif type_of_timer == "match":
         while getattr(thr, "do_run", True):
             time_in_match += 1
             time.sleep(1)
-    elif queue_or_match == "queue":
+    elif type_of_timer == "queue":
         while getattr(thr, "do_run", True):
             time_in_queue += 1
             time.sleep(1)
-    elif queue_or_match == "error":
+    elif type_of_timer == "error":
         while getattr(thr, "do_run", True):
-            error_handling_time += 1
+            time_handling_errors += 1
             time.sleep(1)
 
 
@@ -48,7 +48,7 @@ def show():
     print("\nStatistics:")
     print("XP farmed:", games_played * 500)
     print("Time working:", time.strftime("%M:%S", time.gmtime(time_bot_working)))
-    print("Time handling errors:", error_handling_time)
+    print("Time handling errors:", time_handling_errors)
     if games_played == 0:
         print("Average search duration:",
               time.strftime("%M:%S", time.gmtime(time_in_queue)))
@@ -58,4 +58,4 @@ def show():
         print("Average search duration:",
               time.strftime("%M:%S", time.gmtime(time_in_queue / games_played)))
         print("Average match duration:",
-              time.strftime("%M:%S", time.gmtime((time_in_match - error_handling_time) / games_played)))
+              time.strftime("%M:%S", time.gmtime((time_in_match - time_handling_errors) / games_played)))

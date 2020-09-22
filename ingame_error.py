@@ -12,9 +12,13 @@ def handle():
     thr = threading.Thread(name="error", target=stats.tick, args=("match",), daemon=True)
     thr.start()
 
+    valorant.kill()
+
     for x in range(settings.average_valorant_closing_time, 0, -1):
         time.sleep(1)
         print(x, "second(s) to launch")
+
+    print(stats.time_handling_errors)
 
     time.sleep(0.5)
     valorant.launch()
