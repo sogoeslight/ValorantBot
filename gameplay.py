@@ -134,7 +134,7 @@ def buy_gun(gun, conf):
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/guns/' + gun + '.png', confidence=conf)
             m.click_on_center(x, y)
-            print("Bought", gun, conf)
+            print("Bought", gun, round(conf, 2))
             break
         except TypeError:
             conf -= 0.5

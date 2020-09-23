@@ -119,28 +119,26 @@ def press_play_again():
     region = (settings.resolution_x * .35, settings.resolution_y * .85,
               settings.resolution_x * .27, settings.resolution_y * .15)
     pyautogui.screenshot(region=region).save("resources/press_play_again.png")
-    find_and_click_on('/play_again.png', 0.99, '"Play again" pressed', region, '/play_again_1.png')
+    find_and_click_on('/play_again.png', 0.99, '"Play again" pressed', region, '/play_again_1.png', 0.1)
 
 
-def find_and_click_on(pic, conf, message, region, second_pic=None, amount_of_clicks=None):
+def find_and_click_on(pic, conf, message, region, second_pic=None, amount_of_clicks=None, delay=None):
     x = None
-    while x is None:
+    while x is None & conf > .4:
         try:
-            if conf < .4:
-                print(conf)
-                break
             click_on(pic, conf, message, region, amount_of_clicks)
             break
         except TypeError:
-            if second_pic is None:
-                pass
-            else:
+            if second_pic is not None:
                 try:
                     click_on(second_pic, conf, message, region, amount_of_clicks)
                 except TypeError:
                     pass
 
-        conf -= .01
+        if delay is not None:
+            time.sleep(delay)
+
+        conf -= .02
 
 
 def click_on(pic, conf, message, region, amount_of_clicks=None):
