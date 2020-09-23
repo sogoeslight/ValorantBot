@@ -34,8 +34,10 @@ def press_play():
 
 
 def select_game_mode():
-    region = (settings.resolution_x * .24, settings.resolution_y * .06,
-              settings.resolution_x * .5, settings.resolution_y * .12)
+    #region = (settings.resolution_x * .24, settings.resolution_y * .06,
+    #          settings.resolution_x * .5, settings.resolution_y * .12)
+    region = (settings.resolution_x * .5, settings.resolution_y * .06,
+              settings.resolution_x * .24, settings.resolution_y * .12)
     pyautogui.screenshot(region=region).save("game_mode.png")
     find_and_click_on('/deathmatch.png', 0.75, "Game mode selected", region)
 
