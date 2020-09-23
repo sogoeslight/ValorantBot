@@ -87,7 +87,7 @@ def simulate(enable_simulation):
                                                   region=(
                                                       int(settings.resolution_x * .3),
                                                       int(settings.resolution_y * .22),
-                                                      int(settings.resolution_x * .47),
+                                                      int(settings.resolution_x * .52),
                                                       int(settings.resolution_y * .11)),
                                                   confidence=.95)
             pyautogui.screenshot(region=(
