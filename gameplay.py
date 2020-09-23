@@ -132,9 +132,6 @@ def buy():
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
 
-    print(pistols[pistol])
-    print(guns[gun])
-
     k.press_button('b')
     time.sleep(random.uniform(.2, .5))
 
@@ -152,7 +149,6 @@ def buy_gun(gun, conf):
             x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                                   + '/guns/' + gun + '.png', confidence=conf)
             m.click_on_center(x, y)
-            print("Bought", gun, round(conf, 2))
             break
         except TypeError:
             conf -= .5
