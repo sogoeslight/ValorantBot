@@ -20,8 +20,13 @@ def simulate(enable_simulation):
 
     # check for in game errors
     try:
-        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                              + '/quit.png', confidence=.9)
+        x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/quit.png',
+                                              region=(
+                                                  int(settings.resolution_x * .4),
+                                                  int(settings.resolution_y * .56),
+                                                  int(settings.resolution_x * .17),
+                                                  int(settings.resolution_y * .2)),
+                                              confidence=.9)
         print("\nError occurred\n")
         thr.do_run = False
         thr.join()
@@ -39,8 +44,18 @@ def simulate(enable_simulation):
 
         # check for in game errors
         try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/quit.png', confidence=.9)
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/quit.png',
+                                                  region=(
+                                                      int(settings.resolution_x * .4),
+                                                      int(settings.resolution_y * .56),
+                                                      int(settings.resolution_x * .17),
+                                                      int(settings.resolution_y * .2)),
+                                                  confidence=.9)
+            pyautogui.screenshot(region=(
+                int(settings.resolution_x * .4),
+                int(settings.resolution_y * .56),
+                int(settings.resolution_x * .17),
+                int(settings.resolution_y * .2))).save("buy window")
             print("\nError occurred\n")
             thr.do_run = False
             thr.join()
@@ -50,31 +65,46 @@ def simulate(enable_simulation):
 
         # check if did not close buy window
         try:
-            m.move_to(settings.safe_point[0], settings.safe_point[1], .1)
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/guns/phantom.png', confidence=.7)
-            m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
-
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/buy.png', confidence=.7)
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/buy.png',
+                                                  region=(
+                                                      int(settings.resolution_x * .39),
+                                                      int(settings.resolution_y * .42),
+                                                      int(settings.resolution_x * .12),
+                                                      int(settings.resolution_y * .15)),
+                                                  confidence=.7)
+            pyautogui.screenshot(region=(
+                int(settings.resolution_x * .39),
+                int(settings.resolution_y * .42),
+                int(settings.resolution_x * .12),
+                int(settings.resolution_y * .15))).save("buy window")
             k.press_button('b')
         except TypeError:
             pass
 
         # check inactivity
         try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/inactivity.png', confidence=.95)
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
+                                                  region=(
+                                                      int(settings.resolution_x * .4),
+                                                      int(settings.resolution_y * .25),
+                                                      int(settings.resolution_x * .17),
+                                                      int(settings.resolution_y * .2)),
+                                                  confidence=.95)
+            pyautogui.screenshot(region=(
+                int(settings.resolution_x * .4),
+                int(settings.resolution_y * .25),
+                int(settings.resolution_x * .17),
+                int(settings.resolution_y * .2))).save("buy window")
             buy()
         except TypeError:
             pass
 
         # check for end of the match
         try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/skip.png',
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/skip.png',
                                                   region=(
-                                                      int(settings.resolution_x * .4), int(settings.resolution_y * .7),
+                                                      int(settings.resolution_x * .4),
+                                                      int(settings.resolution_y * .7),
                                                       int(settings.resolution_x * .17),
                                                       int(settings.resolution_y * .3)),
                                                   confidence=.7)
@@ -88,8 +118,7 @@ def simulate(enable_simulation):
 
         # check for end of the match #2
         try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/match_end.png',
+            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/match_end.png',
                                                   region=(
                                                       int(settings.resolution_x * .4),
                                                       int(settings.resolution_y * .25),
@@ -118,6 +147,9 @@ def buy():
 
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
+
+    print(pistols[pistol])
+    print(guns[gun])
 
     k.press_button('b')
     time.sleep(random.uniform(.2, .5))
