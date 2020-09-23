@@ -97,8 +97,8 @@ def check_chat_error():
 
 
 def skip_stats():
-    region = (settings.resolution_x * .4, settings.resolution_y * .7,
-              settings.resolution_x * .17, settings.resolution_y * .3)
+    region = (settings.resolution_x * .41, settings.resolution_y * .735,
+              settings.resolution_x * .15, settings.resolution_y * .2)
     pyautogui.screenshot(region=region).save("resources/skip_stats.png")
     find_and_click_on('/skip.png', 0.9, "Stats skipped", region)
 
