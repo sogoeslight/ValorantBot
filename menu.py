@@ -124,7 +124,7 @@ def press_play_again():
 
 def find_and_click_on(pic, conf, message, region, second_pic=None, amount_of_clicks=None, delay=None):
     x = None
-    while x is None & conf > .4:
+    while (x is None) & (conf > .4):
         try:
             click_on(pic, conf, message, region, amount_of_clicks)
             break

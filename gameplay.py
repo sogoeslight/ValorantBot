@@ -141,7 +141,6 @@ def buy_gun(gun, conf):
         except TypeError:
             conf -= 0.5
 
-    k.press_button('b')
 
 
 # TODO: add ability 1
