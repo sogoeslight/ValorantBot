@@ -49,7 +49,8 @@ def show():
     print("\nStatistics:")
     print("XP farmed:", games_played * 500)
     print("Time working:", time.strftime("%M:%S", time.gmtime(time_bot_working)))
-    print("Time handling errors:", time.gmtime(time_handling_errors))
+    if time_handling_errors > 0:
+        print("Time handling errors:", time.gmtime(time_handling_errors))
     if games_played == 0:
         print("Average search duration:",
               time.strftime("%M:%S", time.gmtime(time_in_queue)))

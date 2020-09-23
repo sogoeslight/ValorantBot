@@ -85,10 +85,10 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
                                                   region=(
-                                                      int(settings.resolution_x * .3),
-                                                      int(settings.resolution_y * .22),
+                                                      int(settings.resolution_x * .25),
+                                                      int(settings.resolution_y * .2),
                                                       int(settings.resolution_x * .52),
-                                                      int(settings.resolution_y * .11)),
+                                                      int(settings.resolution_y * .31)),
                                                   confidence=.95)
             pyautogui.screenshot(region=(
                 int(settings.resolution_x * .4),
