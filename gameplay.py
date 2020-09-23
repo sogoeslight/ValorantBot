@@ -69,8 +69,8 @@ def simulate(enable_simulation):
                                                   region=(
                                                       int(settings.resolution_x * .39),
                                                       int(settings.resolution_y * .42),
-                                                      int(settings.resolution_x * .32),
-                                                      int(settings.resolution_y * .35)),
+                                                      int(settings.resolution_x * .42),
+                                                      int(settings.resolution_y * .45)),
                                                   confidence=.7)
             pyautogui.screenshot(region=(
                 int(settings.resolution_x * .39),
@@ -86,9 +86,9 @@ def simulate(enable_simulation):
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
                                                   region=(
                                                       int(settings.resolution_x * .4),
-                                                      int(settings.resolution_y * .25),
+                                                      int(settings.resolution_y * .32),
                                                       int(settings.resolution_x * .27),
-                                                      int(settings.resolution_y * .12)),
+                                                      int(settings.resolution_y * .09)),
                                                   confidence=.95)
             pyautogui.screenshot(region=(
                 int(settings.resolution_x * .4),
