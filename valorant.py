@@ -59,6 +59,7 @@ def check_update():
         x, y = pyautogui.locateCenterOnScreen('resources/' + settings.resolution_string
                                               + '/update_play.png', confidence=.7)
         m.click_on_center(x, y)
+        print("Update window skipped")
     except TypeError:
         pass
 

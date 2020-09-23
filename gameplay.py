@@ -50,11 +50,6 @@ def simulate(enable_simulation):
                                                       int(settings.resolution_x * .17),
                                                       int(settings.resolution_y * .11)),
                                                   confidence=.9)
-            pyautogui.screenshot(region=(
-                int(settings.resolution_x * .41),
-                int(settings.resolution_y * .55),
-                int(settings.resolution_x * .17),
-                int(settings.resolution_y * .11))).save("error.png")
             print("\nError occurred\n")
             thr.do_run = False
             thr.join()

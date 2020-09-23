@@ -28,32 +28,28 @@ def play_again():
 
 
 def press_play():
-    region = (settings.resolution_x * .33, 0,
-              settings.resolution_x * .31, settings.resolution_y * .12)
-    pyautogui.screenshot(region=region).save("play.png")
+    region = (settings.resolution_x * .40, settings.resolution_y * .02,
+              settings.resolution_x * .17, settings.resolution_y * .05)
     find_and_click_on('/play.png', 0.95, "Play button pressed", region, None, 2)
 
 
 def select_game_mode():
     # region = (settings.resolution_x * .24, settings.resolution_y * .06,
     #          settings.resolution_x * .5, settings.resolution_y * .12)
-    region = (settings.resolution_x * .51, settings.resolution_y * .065,
-              settings.resolution_x * .125, settings.resolution_y * .04)
-    pyautogui.screenshot(region=region).save("game_mode.png")
+    region = (settings.resolution_x * .51, settings.resolution_y * .08,
+              settings.resolution_x * .125, settings.resolution_y * .05)
     find_and_click_on('/deathmatch.png', 0.75, "Game mode selected", region)
 
 
 def close_lobby():
     region = (settings.resolution_x * .345, settings.resolution_y * .155,
               settings.resolution_x * .16, settings.resolution_y * .09)
-    pyautogui.screenshot(region=region).save("close_lobby.png")
     find_and_click_on('/close_lobby.png', 0.95, "Lobby closed", region)
 
 
 def start_search():
     region = (settings.resolution_x * .38, settings.resolution_y * .835,
               settings.resolution_x * .22, settings.resolution_y * .13)
-    pyautogui.screenshot(region=region).save("start_search.png")
     find_and_click_on('/small_start.png', 0.9, "Searching game...", region)
 
 
