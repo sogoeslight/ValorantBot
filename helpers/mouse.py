@@ -4,7 +4,7 @@ import settings
 
 
 def click_on_center(x, y):
-    movement_time = random.uniform(0.4, 0.75)
+    movement_time = random.uniform(.4, .75)
     x, y = randomize_center_coordinates(x, y)
     pyautogui.moveTo(x, y, movement_time)
     pyautogui.click(x, y)
@@ -13,9 +13,9 @@ def click_on_center(x, y):
 
 def move_to(x, y, speed=None):
     if speed is None:
-        movement_time = random.uniform(0.4, 0.7)
+        movement_time = random.uniform(.4, .7)
     else:
-        movement_time = speed + random.uniform(0.05, 0.1)
+        movement_time = speed + random.uniform(.05, .1)
 
     pyautogui.moveTo(x, y, movement_time)
 
@@ -27,7 +27,7 @@ def randomize_center_coordinates(x, y, low_plank=5, high_plank=5):
 
 
 def click_on_area(x, y, w, h):
-    movement_time = random.uniform(0.4, 0.75)
+    movement_time = random.uniform(.4, .75)
     x, y = randomize_area_coordinates(x, y, w, h)
     pyautogui.moveTo(x, y, movement_time)
     pyautogui.click(x, y)

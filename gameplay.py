@@ -50,7 +50,7 @@ def simulate(enable_simulation):
 
         # check if did not close buy window
         try:
-            m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
+            m.move_to(settings.safe_point[0], settings.safe_point[1], .1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/guns/phantomFullHD.png', confidence=.7)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
@@ -91,10 +91,10 @@ def simulate(enable_simulation):
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
                                                   + '/match_end.png',
                                                   region=(
-                                                      int(settings.resolution_x * 0.4),
-                                                      int(settings.resolution_y * 0.25),
-                                                      int(settings.resolution_x * 0.17),
-                                                      int(settings.resolution_y * 0.2))
+                                                      int(settings.resolution_x * .4),
+                                                      int(settings.resolution_y * .25),
+                                                      int(settings.resolution_x * .17),
+                                                      int(settings.resolution_y * .2))
                                                   , confidence=.85)
             print("\nMatch has ended")
             thr.do_run = False
@@ -106,7 +106,7 @@ def simulate(enable_simulation):
 
 
 def simulate_movements():
-    k.press_button('w', 0.1)
+    k.press_button('w', .1)
 
 
 # TODO:

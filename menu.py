@@ -13,7 +13,7 @@ from helpers import screen, colors
 
 def start_game():
     press_play()
-    time.sleep(0.3)
+    time.sleep(.3)
     select_game_mode()
     close_lobby()
     start_search()

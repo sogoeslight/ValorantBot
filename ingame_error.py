@@ -20,7 +20,7 @@ def handle():
 
     print(stats.time_handling_errors)
 
-    time.sleep(0.5)
+    time.sleep(.5)
     valorant.launch()
 
     thr.do_run = False
