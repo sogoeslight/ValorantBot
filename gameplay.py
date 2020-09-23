@@ -8,7 +8,6 @@ import pyautogui
 import ingame_error as err
 from helpers import mouse as m
 from helpers import keyboard as k
-from helpers import screen, colors
 
 
 # TODO: regions to every locate
@@ -46,10 +45,10 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/quit.png',
                                                   region=(
-                                                      int(settings.resolution_x * .4),
-                                                      int(settings.resolution_y * .56),
-                                                      int(settings.resolution_x * .17),
-                                                      int(settings.resolution_y * .2)),
+                                                      int(settings.resolution_x * .41),
+                                                      int(settings.resolution_y * .55),
+                                                      int(settings.resolution_x * .18),
+                                                      int(settings.resolution_y * .11)),
                                                   confidence=.9)
             pyautogui.screenshot(region=(
                 int(settings.resolution_x * .4),
@@ -69,14 +68,14 @@ def simulate(enable_simulation):
                                                   region=(
                                                       int(settings.resolution_x * .39),
                                                       int(settings.resolution_y * .42),
-                                                      int(settings.resolution_x * .42),
-                                                      int(settings.resolution_y * .45)),
+                                                      int(settings.resolution_x * .25),
+                                                      int(settings.resolution_y * .20)),
                                                   confidence=.7)
             pyautogui.screenshot(region=(
                 int(settings.resolution_x * .39),
                 int(settings.resolution_y * .42),
-                int(settings.resolution_x * .12),
-                int(settings.resolution_y * .15))).save("buy_window.png")
+                int(settings.resolution_x * .25),
+                int(settings.resolution_y * .20))).save("buy_window.png")
             k.press_button('b')
         except TypeError:
             pass
@@ -85,16 +84,16 @@ def simulate(enable_simulation):
         try:
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
                                                   region=(
-                                                      int(settings.resolution_x * .25),
-                                                      int(settings.resolution_y * .2),
-                                                      int(settings.resolution_x * .52),
-                                                      int(settings.resolution_y * .31)),
+                                                      int(settings.resolution_x * .39),
+                                                      int(settings.resolution_y * .255),
+                                                      int(settings.resolution_x * .22),
+                                                      int(settings.resolution_y * .12)),
                                                   confidence=.95)
             pyautogui.screenshot(region=(
-                int(settings.resolution_x * .4),
-                int(settings.resolution_y * .25),
-                int(settings.resolution_x * .17),
-                int(settings.resolution_y * .2))).save("inactivity.png")
+                int(settings.resolution_x * .39),
+                int(settings.resolution_y * .255),
+                int(settings.resolution_x * .22),
+                int(settings.resolution_y * .12))).save("inactivity.png")
             buy()
         except TypeError:
             pass
