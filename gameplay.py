@@ -113,17 +113,19 @@ def simulate_movements():
 # def simulate_shooting():
 
 def buy():
-
     pistols = ["shorty", "usp", "deagle"]
     guns = ["phantom", "vandal", "awp"]
 
     pistol = random.randint(0, 2)
     gun = random.randint(0, 2)
-    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
+
     k.press_button('b')
+    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     time.sleep(0.2)
+
     buy_gun(pistols[pistol], .85)
     buy_gun(guns[gun], .85)
+
     time.sleep(0.5)
     k.press_button('b')
 
