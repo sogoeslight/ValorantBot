@@ -52,7 +52,7 @@ def simulate(enable_simulation):
         try:
             m.move_to(settings.safe_point[0], settings.safe_point[1], .1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/guns/phantomFullHD.png', confidence=.7)
+                                                  + '/guns/phantom.png', confidence=.7)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
 
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
