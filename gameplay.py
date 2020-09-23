@@ -47,14 +47,14 @@ def simulate(enable_simulation):
                                                   region=(
                                                       int(settings.resolution_x * .41),
                                                       int(settings.resolution_y * .55),
-                                                      int(settings.resolution_x * .18),
+                                                      int(settings.resolution_x * .17),
                                                       int(settings.resolution_y * .11)),
                                                   confidence=.9)
             pyautogui.screenshot(region=(
-                int(settings.resolution_x * .4),
-                int(settings.resolution_y * .56),
+                int(settings.resolution_x * .41),
+                int(settings.resolution_y * .55),
                 int(settings.resolution_x * .17),
-                int(settings.resolution_y * .2))).save("error.png")
+                int(settings.resolution_y * .11))).save("error.png")
             print("\nError occurred\n")
             thr.do_run = False
             thr.join()
@@ -68,14 +68,9 @@ def simulate(enable_simulation):
                                                   region=(
                                                       int(settings.resolution_x * .39),
                                                       int(settings.resolution_y * .42),
-                                                      int(settings.resolution_x * .25),
-                                                      int(settings.resolution_y * .20)),
+                                                      int(settings.resolution_x * .2),
+                                                      int(settings.resolution_y * .2)),
                                                   confidence=.7)
-            pyautogui.screenshot(region=(
-                int(settings.resolution_x * .39),
-                int(settings.resolution_y * .42),
-                int(settings.resolution_x * .25),
-                int(settings.resolution_y * .20))).save("buy_window.png")
             k.press_button('b')
         except TypeError:
             pass
@@ -89,11 +84,6 @@ def simulate(enable_simulation):
                                                       int(settings.resolution_x * .22),
                                                       int(settings.resolution_y * .12)),
                                                   confidence=.95)
-            pyautogui.screenshot(region=(
-                int(settings.resolution_x * .39),
-                int(settings.resolution_y * .255),
-                int(settings.resolution_x * .22),
-                int(settings.resolution_y * .12))).save("inactivity.png")
             buy()
         except TypeError:
             pass

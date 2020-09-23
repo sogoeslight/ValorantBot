@@ -13,12 +13,13 @@ def launch():
     time.sleep(settings.system_animations_time)
     pyautogui.press('enter')
     exit_command_line()
+    time.sleep(4)
+    check_update()
     time.sleep(settings.average_valorant_load_time)
     # so Valorant window will be focused in case any shit happened
     m.click_on_center(settings.safe_point[0], settings.safe_point[1])
 
     while True:
-        check_update()
 
         # Valorant launched and match continues
         try:
