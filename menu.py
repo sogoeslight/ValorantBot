@@ -37,14 +37,14 @@ def select_game_mode():
     #region = (settings.resolution_x * .24, settings.resolution_y * .06,
     #          settings.resolution_x * .5, settings.resolution_y * .12)
     region = (settings.resolution_x * .5, settings.resolution_y * .06,
-              settings.resolution_x * .24, settings.resolution_y * .12)
+              settings.resolution_x * .19, settings.resolution_y * .1)
     pyautogui.screenshot(region=region).save("game_mode.png")
     find_and_click_on('/deathmatch.png', 0.75, "Game mode selected", region)
 
 
 def close_lobby():
-    region = (settings.resolution_x * .33, settings.resolution_y * .13,
-              settings.resolution_x * .33, settings.resolution_y * .17)
+    region = (settings.resolution_x * .34, settings.resolution_y * .145,
+              settings.resolution_x * .31, settings.resolution_y * .145)
     pyautogui.screenshot(region=region).save("close_lobby.png")
     find_and_click_on('/close_lobby.png', 0.95, "Lobby closed", region)
 

@@ -18,8 +18,6 @@ def handle():
         time.sleep(1)
         print(x, "second(s) to launch")
 
-    print(stats.time_handling_errors)
-
     time.sleep(.5)
     valorant.launch()
 
