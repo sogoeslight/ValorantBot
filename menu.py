@@ -121,7 +121,7 @@ def check_rewards():
 
 
 def press_play_again():
-    m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .95)
+    m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .935)
     print('"Play again" pressed')
     # region = (settings.resolution_x * .35, settings.resolution_y * .85,
     #           settings.resolution_x * .27, settings.resolution_y * .15)
