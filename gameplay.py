@@ -22,9 +22,9 @@ def simulate(enable_simulation):
         x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/quit.png',
                                               region=(
                                                   int(settings.resolution_x * .41),
-                                                  int(settings.resolution_y * .56),
+                                                  int(settings.resolution_y * .55),
                                                   int(settings.resolution_x * .17),
-                                                  int(settings.resolution_y * .1)),
+                                                  int(settings.resolution_y * .11)),
                                               confidence=.9)
         print("\nError occurred\n")
         thr.do_run = False
