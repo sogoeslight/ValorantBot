@@ -116,10 +116,11 @@ def check_rewards():
 
 
 def press_play_again():
-    region = (settings.resolution_x * .35, settings.resolution_y * .85,
-              settings.resolution_x * .27, settings.resolution_y * .15)
-    pyautogui.screenshot(region=region).save("resources/press_play_again.png")
-    find_and_click_on('/play_again.png', 0.99, '"Play again" pressed', region, '/play_again_1.png', 0.1)
+    m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .95)
+    # region = (settings.resolution_x * .35, settings.resolution_y * .85,
+    #           settings.resolution_x * .27, settings.resolution_y * .15)
+    # pyautogui.screenshot(region=region).save("resources/press_play_again.png")
+    # find_and_click_on('/play_again.png', 0.99, '"Play again" pressed', region, '/play_again_1.png', 0.1)
 
 
 def find_and_click_on(pic, conf, message, region, second_pic=None, amount_of_clicks=None, delay=None):

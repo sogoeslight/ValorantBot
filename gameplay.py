@@ -52,7 +52,7 @@ def simulate(enable_simulation):
         try:
             m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
-                                                  + '/guns/phantom.png', confidence=.7)
+                                                  + '/guns/phantomFullHD.png', confidence=.7)
             m.move_to(x + random.randint(10, w - 10), y + random.randint(10, h - 10))
 
             x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string
@@ -120,10 +120,10 @@ def buy():
     gun = random.randint(0, 2)
 
     k.press_button('b')
-    m.move_to(settings.safe_point[0], settings.safe_point[1], 0.1)
     time.sleep(0.2)
 
     buy_gun(pistols[pistol], .85)
+    time.sleep(0.2)
     buy_gun(guns[gun], .85)
 
     time.sleep(0.5)
@@ -140,7 +140,6 @@ def buy_gun(gun, conf):
             break
         except TypeError:
             conf -= 0.5
-
 
 
 # TODO: add ability 1
