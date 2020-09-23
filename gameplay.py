@@ -120,13 +120,13 @@ def buy():
     gun = random.randint(0, 2)
 
     k.press_button('b')
-    time.sleep(0.2)
+    time.sleep(random.uniform(.2, .5))
 
     buy_gun(pistols[pistol], .85)
-    time.sleep(0.2)
+    time.sleep(random.uniform(.2, .5))
     buy_gun(guns[gun], .85)
 
-    time.sleep(0.5)
+    time.sleep(random.uniform(.2, .5))
     k.press_button('b')
 
 
@@ -139,7 +139,7 @@ def buy_gun(gun, conf):
             print("Bought", gun, round(conf, 2))
             break
         except TypeError:
-            conf -= 0.5
+            conf -= .5
 
 
 # TODO: add ability 1
