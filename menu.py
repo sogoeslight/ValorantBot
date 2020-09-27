@@ -1,7 +1,5 @@
-import cv2
 import time
 import stats
-import random
 import settings
 import threading
 import pyautogui
