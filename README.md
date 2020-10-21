@@ -43,3 +43,13 @@ From a bot directory > `python bot.py`
 ## Hints:
 - To stop script press `ctrl+c` in console window
 - Don't launch it by simply `bot.py`
+
+If it doesn't work for you - try next graphic quality settings:
+- Everything: High
+- Vignette: On
+- Anti-Aliasing: MSAA 4x
+- Anisotropic Filtering: 8x
+- Improve Clarity: Off
+- Experimental Sharpening: Off
+- Bloom: On
+- Distortion: On 
