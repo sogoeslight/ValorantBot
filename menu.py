@@ -31,6 +31,7 @@ def press_play():
     find_and_click_on('/play.png', 0.9, "Play button pressed", region, None, 2)
 
 
+
 def select_game_mode():
     # region = (settings.resolution_x * .24, settings.resolution_y * .06,
     #          settings.resolution_x * .5, settings.resolution_y * .12)
