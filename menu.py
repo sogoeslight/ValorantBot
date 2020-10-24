@@ -28,7 +28,11 @@ def play_again():
 def press_play():
     region = (settings.resolution_x * .40, settings.resolution_y * .02,
               settings.resolution_x * .17, settings.resolution_y * .05)
+<<<<<<< HEAD
     find_and_click_on('/play.png', 0.9, "Play button pressed", region, None, 2)
+=======
+    find_and_click_on('/play.png', 0.93, "Play button pressed", region, None, 2)
+>>>>>>> 204b55c811755b73488c827a794ceb1abe5271e5
 
 
 def select_game_mode():
