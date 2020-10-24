@@ -47,7 +47,7 @@ def show_current_time():
 
 def show():
     print("\nStatistics:")
-    print("XP farmed:", games_played * 500)
+    print("XP farmed:", games_played * 900)
     print("Time working:", time.strftime("%M:%S", time.gmtime(time_bot_working)))
     print("Time handling errors:", time.strftime("%M:%S", time.gmtime(time_handling_errors)))
     if games_played == 0:

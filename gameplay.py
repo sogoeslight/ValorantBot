@@ -12,8 +12,11 @@ from helpers import keyboard as k
 
 # TODO: regions to every locate
 def simulate(enable_simulation):
-    thr = threading.Thread(name="match_timer", target=stats.tick, args=("match",), daemon=True)
-    thr.start()
+    statsThread = threading.Thread(name="match_timer", target=stats.tick, args=("match",), daemon=True)
+    simulateBuyingThread = threading.Thread(name="simulation", target=simulate_buying, args=(), daemon=True)
+
+    statsThread.start()
+    simulateBuyingThread.start()
 
     time.sleep(settings.average_match_load_time + 15)
 
@@ -27,8 +30,10 @@ def simulate(enable_simulation):
                                                   int(settings.resolution_y * .11)),
                                               confidence=.9)
         print("\nError occurred\n")
-        thr.do_run = False
-        thr.join()
+        simulateBuyingThread.do_run = False
+        simulateBuyingThread.join()
+        statsThread.do_run = False
+        statsThread.join()
         err.handle()
     except TypeError:
         buy()
@@ -51,8 +56,10 @@ def simulate(enable_simulation):
                                                       int(settings.resolution_y * .11)),
                                                   confidence=.9)
             print("\nError occurred\n")
-            thr.do_run = False
-            thr.join()
+            simulateBuyingThread.do_run = False
+            simulateBuyingThread.join()
+            statsThread.do_run = False
+            statsThread.join()
             err.handle()
         except TypeError:
             pass
@@ -71,17 +78,17 @@ def simulate(enable_simulation):
             pass
 
         # check inactivity
-        try:
-            x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
-                                                  region=(
-                                                      int(settings.resolution_x * .39),
-                                                      int(settings.resolution_y * .255),
-                                                      int(settings.resolution_x * .22),
-                                                      int(settings.resolution_y * .12)),
-                                                  confidence=.95)
-            buy()
-        except TypeError:
-            pass
+        # try:
+        #     x, y, w, h = pyautogui.locateOnScreen('resources/' + settings.resolution_string + '/inactivity.png',
+        #                                           region=(
+        #                                               int(settings.resolution_x * .39),
+        #                                               int(settings.resolution_y * .255),
+        #                                               int(settings.resolution_x * .22),
+        #                                               int(settings.resolution_y * .12)),
+        #                                           confidence=.95)
+        #     buy()
+        # except TypeError:
+        #     pass
 
         # check for end of the match
         try:
@@ -93,8 +100,10 @@ def simulate(enable_simulation):
                                                       int(settings.resolution_y * .3)),
                                                   confidence=.7)
             print("\nMatch has ended")
-            thr.do_run = False
-            thr.join()
+            simulateBuyingThread.do_run = False
+            simulateBuyingThread.join()
+            statsThread.do_run = False
+            statsThread.join()
             stats.count_game()
             break
         except TypeError:
@@ -110,8 +119,10 @@ def simulate(enable_simulation):
                                                       int(settings.resolution_y * .2))
                                                   , confidence=.85)
             print("\nMatch has ended")
-            thr.do_run = False
-            thr.join()
+            simulateBuyingThread.do_run = False
+            simulateBuyingThread.join()
+            statsThread.do_run = False
+            statsThread.join()
             stats.count_game()
             break
         except TypeError:
@@ -122,8 +133,14 @@ def simulate_movements():
     k.press_button('w', .1)
 
 
+def simulate_buying():
+    time.sleep(random.randint(20, 35))
+    buy()
+
+
 # TODO:
 # def simulate_shooting():
+
 
 def buy():
     pistols = ["shorty", "usp", "deagle"]
