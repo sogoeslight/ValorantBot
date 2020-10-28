@@ -3,12 +3,14 @@ import stats
 import settings
 import gameplay
 import valorant
+from colorama import init, Fore
 
 
 def main():
-    print("___________________________________")
-    print("Bot successfully started")
-    print("Your screen resolution is " + str(settings.resolution_y) + "p\n")
+    init()
+    print(Fore.YELLOW + "___________________________________")
+    print(Fore.WHITE + "Bot successfully started!" + Fore.WHITE)
+    print("Your screen resolution is " + Fore.CYAN + str(settings.resolution_y) + "p\n" + Fore.GREEN)
     stats.daemon_timer()
     try:
         if not settings.valorant_is_opened:
@@ -21,16 +23,17 @@ def main():
                 settings.first_game = False
 
             gameplay.simulate(settings.enable_simulation)
-
+            print("2")
             if settings.was_relaunched_after_error:
                 settings.was_relaunched_after_error = False
                 menu.start_game()
             else:
+                print("3")
                 menu.play_again()
     except KeyboardInterrupt:
-        print("\nBot was manually stopped")
+        print(Fore.YELLOW + "\nBot was manually stopped")
         stats.show()
-        print("___________________________________")
+        print(Fore.YELLOW + "___________________________________")
 
 
 main()

@@ -1,6 +1,6 @@
 # Valorant bot
 
-### Features!
+### Features! (v1.11 compatible :heavy_check_mark:)
 - Done:
     - Anti-afk simulation!
     - Relaunches game in case of error and continues working!
@@ -17,34 +17,39 @@
 
 
 Supposed only for Deathmatches
-Currently supports only FullHD and QHD screens
+Currently supports FullHD and QHD screens
 
 ---
 
 ## Requirements:
 - [Valorant](https://playvalorant.com/en-us/ "https://playvalorant.com/en-us/")
-- [Python](https://www.python.org/downloads/ "https://www.python.org/downloads/")
+- [Python 3.7.9*](https://www.python.org/downloads/ "https://www.python.org/downloads/release/python-379/") 
+(Should work with other versions too, but was not tested)  
+[Direct link for Windows 10 installer*](https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe)  
+*Do not forget to check "Add Python to PATH"
 - [PC](https://downloadmoreram.com/ "Go on, do it")
 - Screen
 
 ## Setup:
-0. Download last release .zip archive and unzip it anywhere
-1. In bot directory -> command line: `pip install -r requirements.txt`
-2. Valorant -> Settings -> Video -> Display Mode: **Windowed**, Resolution - your native resolution, so game should be
-on whole screen, but in window
-3. If you want script to launch Valorant for you - set `valorant_is_opened` in settings.py to `False`,  
+0. [**Download**](https://github.com/sogoeslight/ValorantBot/archive/1.22.zip) latest release and unzip it anywhere
+1. Make sure you have python installed
+2. Launch -> Installer.bat
+3. Valorant -> Settings -> Video -> Display Mode: **Windowed**, Resolution - your native resolution, so game should be
+on whole screen, but in window  
+### Additional:
+- If you want script to launch Valorant for you - set `valorant_is_opened` in /scripts/settings.py to `False`,  
 but don't forget that it will open in the last used resolution and display mode!
-4. Also, you can adjust `average_valorant_load_time` 
-and `average_match_load_time` (settings.py 20 and 21 lines)
+- Also, you can adjust `average_valorant_load_time` 
+and `average_match_load_time` (/scripts/settings.py 20 and 21 lines)
 
 ## Launch:
-From a bot directory > `python bot.py`  
+0. Launch -> Launcher.bat
 
 ## Hints:
-- To stop script press `ctrl+c` in console window
-- Don't launch it by simply `bot.py`
+- Press `ctrl+c` in console window to stop bot
+- Launching it by simply `bot.py` may cause unpredictable errors
 
-If it doesn't work for you - try next graphic quality settings:
+Since bot is graphically-based and anything doesn't work for you - try next graphic quality settings:
 - Everything: High
 - Vignette: On
 - Anti-Aliasing: MSAA 4x
@@ -53,3 +58,6 @@ If it doesn't work for you - try next graphic quality settings:
 - Experimental Sharpening: Off
 - Bloom: On
 - Distortion: On 
+
+### Contacts:
+[E-mail](mailto:ilyalpt@gmail.com)

@@ -1,21 +1,21 @@
 import random
 import pyautogui
 import settings
+from colorama import Fore
 
 
-def click_on_center(x, y):
-    movement_time = random.uniform(.4, .75)
+def click_on_center(x, y, speed=None):
     x, y = randomize_center_coordinates(x, y)
-    pyautogui.moveTo(x, y, movement_time)
+    move_to(x, y, speed)
     pyautogui.click(x, y)
-    # print("Clicked on " + str(round(x, 2)) + ", " + str(round(y, 2)))
+    # print(Fore.RED + "Clicked on " + str(round(x, 2)) + ", " + str(round(y, 2)) + Fore.WHITE)
 
 
 def move_to(x, y, speed=None):
     if speed is None:
         movement_time = random.uniform(.4, .7)
     else:
-        movement_time = speed + random.uniform(.05, .1)
+        movement_time = speed + random.uniform(.05, .125)
 
     pyautogui.moveTo(x, y, movement_time)
 
