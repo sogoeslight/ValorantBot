@@ -3,6 +3,7 @@ import stats
 import valorant
 import settings
 import threading
+from colorama import Fore
 from helpers import colors, screen
 
 
@@ -16,7 +17,7 @@ def handle():
 
     for x in range(settings.average_valorant_closing_time, 0, -1):
         time.sleep(1)
-        print(x, "second(s) to launch")
+        print(Fore.CYAN, x, Fore.YELLOW + "second(s) to launch")
 
     time.sleep(.5)
     valorant.launch()

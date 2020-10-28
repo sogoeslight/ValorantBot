@@ -1,3 +1,4 @@
 pyautogui==0.9.50
 colorthief==0.2.1
 opencv-python~=4.4.0.42
+colorama==0.4.4

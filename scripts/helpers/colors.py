@@ -18,7 +18,7 @@ list_generic_error = [(91, 91, 99), (92, 92, 100), (96, 92, 100), (89, 93, 100)]
 list_error_in_chat = [(124, 84, 84), (135, 67, 66)]
 
 
-def compare_colors(colors, screenshot, tolerance=2):
+def compare_colors(colors, screenshot, tolerance=5):
     # print("\n__________Start_____________")
     for color in colors:
         screenshot_color = ColorThief(screenshot).get_color(quality=1)
