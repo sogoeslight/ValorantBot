@@ -26,10 +26,14 @@ def randomize_center_coordinates(x, y, low_plank=5, high_plank=5):
     return x, y
 
 
-def click_on_area(x, y, w, h):
-    movement_time = random.uniform(.4, .75)
+def click_on_area(x, y, w, h, speed=None):
     x, y = randomize_area_coordinates(x, y, w, h)
-    pyautogui.moveTo(x, y, movement_time)
+
+    if speed is None:
+        pyautogui.moveTo(x, y, random.uniform(.4, .75))
+    else:
+        pyautogui.moveTo(x, y, speed)
+
     pyautogui.click(x, y)
 
 
