@@ -21,7 +21,7 @@ def start_game():
 
 def play_again():
     check_rewards()
-    skip_stats()  # TODO: recheck?
+    # skip_stats()  # TODO: recheck?
     press_play_again()
     queueing(True)
 

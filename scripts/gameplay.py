@@ -64,14 +64,14 @@ def simulate(enable_simulation):
 
         # check for end of the match
         check_for('/skip.png', .7, s.region_maker(.4, .8, .17, .2),
-                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.GREEN + ". Match has ended", close_threads)
+                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.LIGHTGREEN_EX + ". Match has ended", close_threads)
         if match_ended:
             menu.skip_stats()
             break
 
         # check for end of the match #2
         check_for('/match_end.png', .9, s.region_maker(.4, .25, .16, .2),
-                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.GREEN + ". Match has ended", close_threads)
+                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.LIGHTGREEN_EX + ". Match has ended", close_threads)
         if match_ended:
             break
 
