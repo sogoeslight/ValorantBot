@@ -60,4 +60,4 @@ Since bot is graphically-based and anything doesn't work for you - try next grap
 - Distortion: On 
 
 ### Contacts:
-[E-mail](mailto:ilyalpt@gmail.com)
+[E-mail](mailto:SoGoesLight@gmail.com)
