@@ -41,7 +41,7 @@ def simulate(enable_simulation):
 
     # check for in game errors
     try:
-        check_for('/quit.png', .9, s.region_maker(.41, .55, .17, .11), "\nError occurred\n", close_threads)
+        check_for('/quit.png', .9, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
     except TypeError:
         pass
 
@@ -54,23 +54,24 @@ def simulate(enable_simulation):
         time.sleep(settings.checks_refresh_rate)
 
         # check for in game errors
-        check_for('/quit.png', .9, s.region_maker(.1, .55, .17, .11), "\nError occurred\n", close_threads)
+        check_for('/quit.png', .9, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
 
         # check if did not close buy window
-        check_for('/buy.png', .7, s.region_maker(.39, .42, .2, .2), None, k.press_button, 'b')
+        # check_for('/buy.png', .7, s.region_maker(.39, .42, .2, .2), None, k.press_button, 'b')
 
         # check inactivity
         # check_for('/skip.png', .95, s.region_maker(.39, .255, .22, .12b), None, buy)
 
         # check for end of the match
-        check_for('/skip.png', .75, s.region_maker(.4, .7, .17, .3), "\nMatch has ended", close_threads)
+        check_for('/skip.png', .7, s.region_maker(.4, .8, .17, .2),
+                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.GREEN + ". Match has ended", close_threads)
         if match_ended:
-            print("1")  # TODO: locate center coords of skip, if found = click on it
             menu.skip_stats()
             break
 
         # check for end of the match #2
-        check_for('/match_end.png', .9, s.region_maker(.4, .25, .16, .2), "\nMatch has ended", close_threads)
+        check_for('/match_end.png', .9, s.region_maker(.4, .25, .16, .2),
+                  "\n" + Fore.CYAN + str(stats.games_played + 1) + Fore.GREEN + ". Match has ended", close_threads)
         if match_ended:
             break
 
@@ -79,7 +80,7 @@ def check_for(pic, conf, region, message=None, func=None, args=None):
     try:
         x, y, w, h = s.locate_on_screen(pic, conf, region)
         if message is not None:
-            print(Fore.GREEN + message + Fore.WHITE)
+            print(Fore.LIGHTGREEN_EX + message + Fore.WHITE)
 
         if args is None:
             func()
@@ -90,19 +91,13 @@ def check_for(pic, conf, region, message=None, func=None, args=None):
 
 
 def close_threads():
-    print("0")
     global match_ended, simulate_buying_thread, stats_thread
-    print("001")
     match_ended = True
-    print("002")
     simulate_buying_thread.do_run = False
-    print("003")
     simulate_buying_thread.join()
-    print("01")
     stats_thread.do_run = False
     stats_thread.join()
     stats.count_game()
-    print("02")
 
 
 def simulate_movements():
@@ -115,10 +110,7 @@ def simulate_buying():
         while getattr(simulate_buying_thread, "do_run", True) and x > 0:
             time.sleep(0.2)
             x = x - 0.2
-            #print("timer: ", x)
-        print("1break")
         buy()
-    print("2break")
 
 
 # TODO:
@@ -138,7 +130,7 @@ def buy_gun(gun, conf):
         try:
             x, y = pyautogui.locateCenterOnScreen('../resources/' + settings.resolution_string
                                                   + '/guns/' + gun + '.png', confidence=conf)
-            m.click_on_center(x, y, 0.375)
+            m.click_on_center(x, y, 0.325)
             break
         except TypeError:
             conf -= .5

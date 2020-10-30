@@ -10,7 +10,7 @@ def main():
     init()
     print(Fore.YELLOW + "___________________________________")
     print(Fore.WHITE + "Bot successfully started!" + Fore.WHITE)
-    print("Your screen resolution is " + Fore.CYAN + str(settings.resolution_y) + "p\n" + Fore.GREEN)
+    print("Your screen resolution is " + Fore.CYAN + str(settings.resolution_y) + "p\n" + Fore.LIGHTGREEN_EX)
     stats.daemon_timer()
     try:
         if not settings.valorant_is_opened:
@@ -23,12 +23,10 @@ def main():
                 settings.first_game = False
 
             gameplay.simulate(settings.enable_simulation)
-            print("2")
             if settings.was_relaunched_after_error:
                 settings.was_relaunched_after_error = False
                 menu.start_game()
             else:
-                print("3")
                 menu.play_again()
     except KeyboardInterrupt:
         print(Fore.YELLOW + "\nBot was manually stopped")

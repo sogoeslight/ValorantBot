@@ -28,7 +28,7 @@ def launch():
 
             screen.shot('../resources/temp/control_picture_1.png', x, y, w, h)
             if pyautogui.pixelMatchesColor(int(x + w - 3), int(y + h / 2), colors.almost_white, tolerance=4):
-                print(Fore.GREEN + "\nLaunched successfully into the match\n" + Fore.WHITE)
+                print(Fore.LIGHTGREEN_EX + "\nLaunched successfully into the match\n" + Fore.WHITE)
                 settings.first_game = False
                 settings.was_relaunched_after_error = True
                 break
@@ -41,7 +41,7 @@ def launch():
             screen.shot('../resources/temp/control_picture_1.png', x, y, w, h)
             if colors.compare_colors(colors.list_for_game_launch,
                                      '../resources/temp/control_picture_1.png', tolerance=3):
-                print(Fore.GREEN + "\nLaunched successfully into the menu\n" + Fore.WHITE)
+                print(Fore.LIGHTGREEN_EX + "\nLaunched successfully into the menu\n" + Fore.WHITE)
                 settings.first_game = True
                 break
         except TypeError:
@@ -58,7 +58,7 @@ def check_update():
         x, y = pyautogui.locateCenterOnScreen('../      resources/' + settings.resolution_string
                                               + '/update_play.png', confidence=.7)
         m.click_on_center(x, y)
-        print(Fore.GREEN + "Update window skipped" + Fore.WHITE)
+        print(Fore.LIGHTGREEN_EX + "Update window skipped" + Fore.WHITE)
     except TypeError:
         pass
 

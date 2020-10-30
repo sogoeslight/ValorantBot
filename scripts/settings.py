@@ -19,7 +19,7 @@ valorant_process_name = 'VALORANT-Win64-Shipping.exe'
 
 average_valorant_load_time = 22
 average_match_load_time = 16
-checks_refresh_rate = 1.25
+checks_refresh_rate = 1.5
 # Increase it a bit if CMD lags sometimes
 system_animations_time = .7
 

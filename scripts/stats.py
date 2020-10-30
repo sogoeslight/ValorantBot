@@ -57,9 +57,9 @@ def show():
         print("Average match duration:" + Fore.CYAN,
               time.strftime("%M:%S", time.gmtime(time_in_match)) + Fore.WHITE)
     else:
-        print("Average search duration:" + Fore.CYAN +
+        print("Average search duration: " + Fore.CYAN +
               time.strftime("%M:%S", time.gmtime(time_in_queue / games_played)) + Fore.WHITE)
-        print("Average match duration:" + Fore.CYAN +
+        print("Average match duration: " + Fore.CYAN +
               time.strftime("%M:%S", time.gmtime((time_in_match - time_handling_errors
                                                   - settings.average_match_load_time * games_played) / games_played))
               + Fore.WHITE)
