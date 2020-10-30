@@ -24,7 +24,7 @@ Currently supports FullHD and QHD screens
 
 ## Requirements:
 - [Valorant](https://playvalorant.com/en-us/ "https://playvalorant.com/en-us/")
-- [Python 3.7.9*](https://www.python.org/downloads/ "https://www.python.org/downloads/release/python-379/") 
+- [Python v3.7.9*](https://www.python.org/downloads/ "https://www.python.org/downloads/release/python-379/") 
 (Should work with other versions too, but was not tested)  
 [Direct link for Windows 10 installer*](https://www.python.org/ftp/python/3.7.9/python-3.7.9-amd64.exe)  
 *Do not forget to check "Add Python to PATH"
