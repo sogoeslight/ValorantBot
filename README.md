@@ -49,7 +49,7 @@ and `average_match_load_time` (/scripts/settings.py 20 and 21 lines)
 - Press `ctrl+c` in console window to stop bot
 - Launching it by simply `bot.py` may cause unpredictable errors
 
-Since bot is graphically-based and anything doesn't work for you - try next graphic quality settings:
+Since bot is graphically-based, if anything doesn't work for you - try next graphic quality settings:
 - Everything: High
 - Vignette: On
 - Anti-Aliasing: MSAA 4x
