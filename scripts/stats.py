@@ -43,23 +43,23 @@ def count_game():
 
 
 def show_current_time():
-    print(Fore.WHITE + "Current Time: " + Fore.CYAN, time.strftime("%H:%M:%S", time.localtime()))
+    print(Fore.WHITE + "Current Time:" + Fore.CYAN, time.strftime("%H:%M:%S", time.localtime()))
 
 
 def show():
     print(Fore.WHITE + "\nStatistics:")
-    print("XP farmed:" + Fore.CYAN, games_played * 900, Fore.WHITE)
-    print("Time working:" + Fore.CYAN, time.strftime("%M:%S", time.gmtime(time_bot_working)) + Fore.WHITE)
-    print("Time handling errors:" + Fore.CYAN, time.strftime("%M:%S", time.gmtime(time_handling_errors)) + Fore.WHITE)
+    print("   XP farmed:" + Fore.CYAN, games_played * 900, Fore.WHITE)
+    print("   Time working:" + Fore.CYAN, time.strftime("%M:%S", time.gmtime(time_bot_working)) + Fore.WHITE)
+    print("   Time handling errors:" + Fore.CYAN, time.strftime("%M:%S", time.gmtime(time_handling_errors)) + Fore.WHITE)
     if games_played == 0:
-        print("Average search duration:" + Fore.CYAN,
+        print("   Average search duration:" + Fore.CYAN,
               time.strftime("%M:%S", time.gmtime(time_in_queue)) + Fore.WHITE)
-        print("Average match duration:" + Fore.CYAN,
+        print("   Average match duration:" + Fore.CYAN,
               time.strftime("%M:%S", time.gmtime(time_in_match)) + Fore.WHITE)
     else:
-        print("Average search duration: " + Fore.CYAN +
+        print("   Average search duration: " + Fore.CYAN +
               time.strftime("%M:%S", time.gmtime(time_in_queue / games_played)) + Fore.WHITE)
-        print("Average match duration: " + Fore.CYAN +
+        print("   Average match duration: " + Fore.CYAN +
               time.strftime("%M:%S", time.gmtime((time_in_match - time_handling_errors
                                                   - settings.average_match_load_time * games_played) / games_played))
               + Fore.WHITE)
