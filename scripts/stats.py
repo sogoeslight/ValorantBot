@@ -43,7 +43,7 @@ def count_game():
 
 
 def show_current_time():
-    print(Fore.WHITE + "Current Time =" + Fore.CYAN, time.strftime("%H:%M:%S", time.localtime()))
+    print(Fore.WHITE + "Current Time: " + Fore.CYAN, time.strftime("%H:%M:%S", time.localtime()))
 
 
 def show():
