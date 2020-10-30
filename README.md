@@ -6,6 +6,7 @@
     - Relaunches game in case of error and continues working!
     - Handles updates too!
     - Statistics!
+    - 0 bans since since beginning of September!
     - ...
     - Goes well with pizza!
 - Coming soon:
