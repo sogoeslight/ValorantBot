@@ -32,7 +32,7 @@ Currently supports FullHD and QHD screens
 - Screen
 
 ## Setup:
-0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.22.zip) and unzip it anywhere
+0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.3.zip) and unzip it anywhere
 1. Make sure you have python installed
 2. Launch -> Installer.bat
 3. Valorant -> Settings -> Video -> Display Mode: **Windowed**;  
