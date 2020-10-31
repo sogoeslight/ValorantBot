@@ -35,9 +35,9 @@ def simulate(enable_simulation):
     simulate_buying_thread.do_run = True
 
     k.press_button('b')
-    time.sleep(random.uniform(0, .1))
+    time.sleep(random.uniform(0, .2))
     buy_gun(pistols[random.randint(0, 2)], .85)
-    time.sleep(random.uniform(0, .1))
+    time.sleep(random.uniform(0, .2))
     k.press_button('b')
 
     # check for in game errors
@@ -124,7 +124,7 @@ def buy():
     k.press_button('b')
     time.sleep(random.uniform(0, .2))
     buy_gun(guns[random.randint(0, 2)], .85)
-    time.sleep(random.uniform(0, .1))
+    time.sleep(random.uniform(0, .2))
     k.press_button('b')
 
 
