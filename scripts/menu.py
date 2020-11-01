@@ -21,7 +21,7 @@ def start_game():
 
 def play_again():
     check_rewards()
-    # skip_stats()  # TODO: recheck?
+    skip_stats()  # TODO: recheck?
     press_play_again()
     queueing(True)
 
@@ -125,7 +125,7 @@ def find_and_click_on(pic, conf, region, message=None, second_pic=None, speed=No
 
         if delay is not None:
             time.sleep(delay)
-        print(Fore.RED + str(conf) + Fore.WHITE)
+        #print(Fore.RED + str(conf) + Fore.WHITE)
         conf -= .03
 
 

@@ -55,7 +55,7 @@ def simulate(enable_simulation):
         time.sleep(settings.checks_refresh_rate)
 
         # check for in game errors
-        check_for('/quit.png', .9, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
+        check_for('/quit.png', .85, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
 
         # check if did not close buy window
         # check_for('/buy.png', .7, s.region_maker(.39, .42, .2, .2), None, k.press_button, 'b')
