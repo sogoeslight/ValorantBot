@@ -5,12 +5,17 @@ import threading
 import ingame_error as err
 from colorama import Fore
 from helpers import colors
+from datetime import datetime
 from helpers import mouse as m
 from helpers import keyboard as k
 from helpers import screen as s, colors
 
+is_in_menu = True
+
 
 def start_game():
+    global is_in_menu
+    is_in_menu = True
     press_play()
     time.sleep(.3)
     select_game_mode()
@@ -20,9 +25,13 @@ def start_game():
 
 
 def play_again():
-    check_rewards()
-    skip_stats()  # TODO: recheck?
+    global is_in_menu
+    is_in_menu = True
     press_play_again()
+    err.error_checker_thread.do_run = True
+    err.checker_thread()
+    time.sleep(3)
+    check_rewards()
     queueing(True)
 
 
@@ -46,8 +55,9 @@ def start_search():
 
 
 def queueing(again):
-    thr = threading.Thread(name="queue_timer", target=stats.tick, args=("queue",), daemon=True)
-    thr.start()
+    global is_in_menu
+
+    queue_start_time = datetime.now()
 
     try:
         pos = s.locate_center_on_screen('/friends.png', .85)
@@ -65,9 +75,10 @@ def queueing(again):
     while True:
         try:
             x, y, w, h = s.locate_on_screen(needed_pic, .8)
-            thr.do_run = False
-            thr.join()
-            print(Fore.LIGHTGREEN_EX + "Found!" + Fore.WHITE)
+            print(Fore.LIGHTGREEN_EX + "Found!" + Fore.WHITE, end='')
+            stats.show_current_time()
+            is_in_menu = False
+            stats.time_searching += datetime.now() - queue_start_time
             break
         except TypeError:
             time.sleep(settings.checks_refresh_rate)
@@ -85,21 +96,32 @@ def check_chat_error():
 
 def skip_stats():
     find_and_click_on('/skip.png', .8, s.region_maker(.41, .81, .15, .1), "Stats skipped")
+    time.sleep(0.5)
 
 
 # TODO: double check - when they take place, add region
 def check_rewards():
     try:
-        x, y, w, h = s.locate_on_screen('/rewards.png', .75)
+        x, y, w, h = s.locate_on_screen('/rewards.png', .7)
         k.press_button('esc')
         print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
     except TypeError:
         try:
-            x, y, w, h = s.locate_on_screen('/rewards.png', .7)
+            x, y, w, h = s.locate_on_screen('/rewards_1.png', .7)
             k.press_button('esc')
             print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
         except TypeError:
-            pass
+            try:
+                x, y, w, h = s.locate_on_screen('/rewards.png', .65)
+                k.press_button('esc')
+                print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
+            except TypeError:
+                try:
+                    x, y, w, h = s.locate_on_screen('/rewards_1.png', .65)
+                    k.press_button('esc')
+                    print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
+                except TypeError:
+                    pass
 
 
 def press_play_again():
@@ -125,7 +147,7 @@ def find_and_click_on(pic, conf, region, message=None, second_pic=None, speed=No
 
         if delay is not None:
             time.sleep(delay)
-        #print(Fore.RED + str(conf) + Fore.WHITE)
+        # print(Fore.RED + str(conf) + Fore.WHITE)
         conf -= .03
 
 
@@ -139,7 +161,6 @@ def click_on(pic, confidence, message, region, speed=None, amount_of_clicks=None
             m.click_on_area(x, y, w, h, speed)
 
     print(Fore.LIGHTGREEN_EX + message + Fore.WHITE)
-
 
     # TODO: handle it in queue somehow
     # try:

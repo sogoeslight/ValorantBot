@@ -8,27 +8,35 @@ import threading
 import pyautogui
 import ingame_error as err
 from colorama import Fore
+from helpers import ordinals
+from datetime import datetime
 from helpers import mouse as m
 from helpers import screen as s
 from helpers import keyboard as k
-from helpers import ordinals as ord
 
-match_ended = False
-stats_thread = None
+
+is_in_match = False
 simulate_buying_thread = None
+match_start_time = datetime.now()
 
 pistols = ["shorty", "usp", "deagle"]
 guns = ["phantom", "vandal", "awp"]
 
 
+# TODO: MESSAGE
 def simulate(enable_simulation):
-    global match_ended, simulate_buying_thread, stats_thread
-    match_ended = False
+    global simulate_buying_thread, is_in_match, match_start_time
+    is_in_match = True
+    err.error_checker_thread.do_run = False
 
-    stats_thread = threading.Thread(name="match_timer", target=stats.tick, args=("match",), daemon=True)
-    stats_thread.start()
+    try:
+        check_for('/quit.png', .7, s.region_maker(.34, .56, .31, .13), Fore.YELLOW + "\nError occurred\n", err.handle)
+    except TypeError:
+        pass
 
     time.sleep(settings.average_match_load_time + 15)
+
+    match_start_time = datetime.now()
 
     simulate_buying_thread = threading.Thread(name="simulation", target=simulate_buying, args=(), daemon=True)
     simulate_buying_thread.start()
@@ -40,12 +48,6 @@ def simulate(enable_simulation):
     time.sleep(random.uniform(0, .35))
     k.press_button('b')
 
-    # check for in game errors
-    try:
-        check_for('/quit.png', .9, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
-    except TypeError:
-        pass
-
     # Approximately after 45 seconds game counts you as an inactive player
     while True:
         if enable_simulation:
@@ -54,28 +56,33 @@ def simulate(enable_simulation):
 
         time.sleep(settings.checks_refresh_rate)
 
-        # check for in game errors
-        check_for('/quit.png', .85, s.region_maker(.34, .56, .31, .13), "\nError occurred\n", close_threads)
-
         # check if did not close buy window
         # check_for('/buy.png', .7, s.region_maker(.39, .42, .2, .2), None, k.press_button, 'b')
+
+        # check for errors
+        try:
+            check_for('/quit.png', .7, s.region_maker(.34, .56, .31, .13),
+                      Fore.YELLOW + "\nError occurred\n", err.handle)
+            stats.time_in_match += datetime.now() - match_start_time
+        except TypeError:
+            pass
 
         # check inactivity
         # check_for('/skip.png', .95, s.region_maker(.39, .255, .22, .12b), None, buy)
 
         # check for end of the match
         check_for('/skip.png', .7, s.region_maker(.4, .8, .17, .2),
-                  "\n" + Fore.CYAN + ord.parse(stats.games_played + 1) + Fore.LIGHTGREEN_EX + " match has ended",
+                  "\n" + Fore.CYAN + ordinals.parse(stats.matches_played + 1) + Fore.LIGHTGREEN_EX + " match has ended",
                   close_threads)
-        if match_ended:
+        if not is_in_match:
             menu.skip_stats()
             break
 
         # check for end of the match #2
         check_for('/match_end.png', .9, s.region_maker(.4, .25, .16, .2),
-                  "\n" + Fore.CYAN + ord.parse(stats.games_played + 1) + Fore.LIGHTGREEN_EX + " match has ended",
+                  "\n" + Fore.CYAN + ordinals.parse(stats.matches_played + 1) + Fore.LIGHTGREEN_EX + " match has ended",
                   close_threads)
-        if match_ended:
+        if not is_in_match:
             break
 
 
@@ -94,13 +101,12 @@ def check_for(pic, conf, region, message=None, func=None, args=None):
 
 
 def close_threads():
-    global match_ended, simulate_buying_thread, stats_thread
-    match_ended = True
+    global simulate_buying_thread, is_in_match, match_start_time
+    stats.time_in_match += datetime.now() - match_start_time
+    stats.matches_played += 1
+    is_in_match = False
     simulate_buying_thread.do_run = False
     simulate_buying_thread.join()
-    stats_thread.do_run = False
-    stats_thread.join()
-    stats.count_game()
 
 
 def simulate_movements():
@@ -108,15 +114,21 @@ def simulate_movements():
 
 
 def simulate_buying():
+    counter = 0
     while getattr(simulate_buying_thread, "do_run", True):
         x = random.randint(25, 35)
         while getattr(simulate_buying_thread, "do_run", True) and x > 0:
             time.sleep(0.2)
             x = x - 0.2
         buy()
+        time.sleep(1.5)
+        counter += 1
+        if stats.matches_played > 0 and counter == 3:
+            counter = 0
+            k.send_to_chat('This bot is ran by github.com/sogoeslight/ValorantBot (tinyurl.com/sglbot) !')
 
 
-# TODO:
+# TODO: simulate shooting
 # def simulate_shooting():
 
 
