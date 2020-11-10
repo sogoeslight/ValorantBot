@@ -28,9 +28,9 @@ def show():
         print("   Average search duration:" + Fore.CYAN, ':'.join(str(time_searching).split(':')[:2]), Fore.WHITE)
         print("   Average match duration:" + Fore.CYAN, ':'.join(str(time_in_match).split(':')[:2]), Fore.WHITE)
     else:
-        print("   Average search duration: " + Fore.CYAN,
+        print("   Average search duration:" + Fore.CYAN,
               ':'.join(str(time_searching / matches_played).split(':')[:2]), Fore.WHITE)
-        print("   Average match duration: " + Fore.CYAN,
+        print("   Average match duration:" + Fore.CYAN,
               ':'.join(str(time_in_match / matches_played).split(':')[:2]), Fore.WHITE)
     print(Fore.WHITE + "Current Time:", end='')
     show_current_time()
