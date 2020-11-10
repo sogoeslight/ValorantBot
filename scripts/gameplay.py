@@ -125,7 +125,7 @@ def simulate_buying():
         counter += 1
         if stats.matches_played > 0 and counter == 3:
             counter = 0
-            k.send_to_chat('This bot is ran by github.com/sogoeslight/ValorantBot (tinyurl.com/sglbot) !')
+            #k.send_to_chat('This bot is ran by github.com/sogoeslight/ValorantBot (tinyurl.com/sglbot) !')
 
 
 # TODO: simulate shooting

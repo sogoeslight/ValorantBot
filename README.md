@@ -46,6 +46,8 @@ and `average_match_load_time` (/scripts/settings.py 20 and 21 lines)
 ## Launch:
 0. Launch -> Launcher.bat
 
+![Getting Started](./resources/bot_pic.png)
+
 ## Hints:
 - Press `ctrl+c` in console window to stop bot
 - Launching it by simply `bot.py` may cause unpredictable errors
