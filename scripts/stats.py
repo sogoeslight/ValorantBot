@@ -24,7 +24,7 @@ def show():
                                                         minutes=starting_work_time.minute,
                                                         seconds=starting_work_time.second)
     print("   Time working:" + Fore.CYAN, bot_working_time_delta.strftime('%H:%M:%S'), Fore.WHITE)
-    print("   Time handling errors:" + Fore.CYAN, time_handling_errors, Fore.WHITE)
+    print("   Time handling errors:" + Fore.CYAN, str(time_handling_errors)[:-7], Fore.WHITE)
 
     if matches_played == 0:
         print("   Average search duration:" + Fore.CYAN + " 0 matches played" + Fore.WHITE)
