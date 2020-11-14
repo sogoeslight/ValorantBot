@@ -81,7 +81,7 @@ def queueing(again):
             stats.time_searching += datetime.now() - queue_start_time
             break
         except TypeError:
-            time.sleep(settings.checks_refresh_rate)
+            time.sleep(settings.checcks_refresh_rate)
 
     # check_chat_error()
 
