@@ -27,11 +27,12 @@ def start_game():
 def play_again():
     global is_in_menu
     is_in_menu = True
+    time.sleep(1)
     press_play_again()
-    err.error_checker_thread.do_run = True
-    err.checker_thread()
     time.sleep(3)
     check_rewards()
+    err.error_checker_thread.do_run = True
+    err.checker_thread()
     queueing(True)
 
 
@@ -46,8 +47,7 @@ def select_game_mode():
 
 
 def close_lobby():
-    find_and_click_on('/close_lobby.png', .85, s.region_maker(.345, .155, .16, .09), "Lobby closed",
-                      '/close_lobby_1.png')
+    find_and_click_on('/party.png', .85, s.region_maker(.345, .155, .16, .09), "Lobby closed")
 
 
 def start_search():
@@ -102,22 +102,22 @@ def skip_stats():
 # TODO: double check - when they take place, add region
 def check_rewards():
     try:
-        x, y, w, h = s.locate_on_screen('/rewards.png', .7)
+        x, y, w, h = s.locate_on_screen('/rewards.png', .65)
         k.press_button('esc')
         print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
     except TypeError:
         try:
-            x, y, w, h = s.locate_on_screen('/rewards_1.png', .7)
+            x, y, w, h = s.locate_on_screen('/rewards_1.png', .65)
             k.press_button('esc')
             print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
         except TypeError:
             try:
-                x, y, w, h = s.locate_on_screen('/rewards.png', .65)
+                x, y, w, h = s.locate_on_screen('/rewards.png', .6)
                 k.press_button('esc')
                 print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
             except TypeError:
                 try:
-                    x, y, w, h = s.locate_on_screen('/rewards_1.png', .65)
+                    x, y, w, h = s.locate_on_screen('/rewards_1.png', .6)
                     k.press_button('esc')
                     print(Fore.LIGHTGREEN_EX + "Rewards acquired" + Fore.WHITE)
                 except TypeError:

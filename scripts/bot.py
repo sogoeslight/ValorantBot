@@ -5,7 +5,7 @@ import gameplay
 import valorant
 import ingame_error
 from datetime import datetime
-from colorama import init, Fore, Style
+from colorama import init, Fore
 
 
 def main():

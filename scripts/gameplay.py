@@ -63,7 +63,6 @@ def simulate(enable_simulation):
         try:
             check_for('/quit.png', .7, s.region_maker(.34, .56, .31, .13),
                       Fore.YELLOW + "\nError occurred\n", err.handle)
-            stats.time_in_match += datetime.now() - match_start_time
         except TypeError:
             pass
 
@@ -92,6 +91,8 @@ def check_for(pic, conf, region, message=None, func=None, args=None):
         if message is not None:
             print(Fore.LIGHTGREEN_EX + message + Fore.WHITE)
 
+        stats.time_in_match += datetime.now() - match_start_time
+
         if args is None:
             func()
         else:
@@ -102,7 +103,6 @@ def check_for(pic, conf, region, message=None, func=None, args=None):
 
 def close_threads():
     global simulate_buying_thread, is_in_match, match_start_time
-    stats.time_in_match += datetime.now() - match_start_time
     stats.matches_played += 1
     is_in_match = False
     simulate_buying_thread.do_run = False
@@ -125,7 +125,7 @@ def simulate_buying():
         counter += 1
         if stats.matches_played > 0 and counter == 3:
             counter = 0
-            k.send_to_chat('This bot is ran by github.com/sogoeslight/ValorantBot (tinyurl.com/sglbot) !')
+            #k.send_to_chat('This bot is ran by github.com/sogoeslight/ValorantBot (tinyurl.com/sglbot) !')
 
 
 # TODO: simulate shooting

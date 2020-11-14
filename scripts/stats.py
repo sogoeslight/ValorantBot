@@ -18,19 +18,20 @@ def show_current_time():
 
 def show():
     print(Fore.WHITE + "\nStatistics:")
+    print("   Matches played:" + Fore.CYAN, matches_played, Fore.WHITE)
     print("   XP farmed:" + Fore.CYAN, matches_played * 900, Fore.WHITE)
     bot_working_time_delta = datetime.now() - timedelta(hours=starting_work_time.hour,
                                                         minutes=starting_work_time.minute,
                                                         seconds=starting_work_time.second)
     print("   Time working:" + Fore.CYAN, bot_working_time_delta.strftime('%H:%M:%S'), Fore.WHITE)
     print("   Time handling errors:" + Fore.CYAN, time_handling_errors, Fore.WHITE)
+
     if matches_played == 0:
-        print("   Average search duration:" + Fore.CYAN, ':'.join(str(time_searching).split(':')[:2]), Fore.WHITE)
-        print("   Average match duration:" + Fore.CYAN, ':'.join(str(time_in_match).split(':')[:2]), Fore.WHITE)
+        print("   Average search duration:" + Fore.CYAN + " 0 matches played" + Fore.WHITE)
+        print("   Average match duration:" + Fore.CYAN + " 0 matches played" + Fore.WHITE)
     else:
-        print("   Average search duration:" + Fore.CYAN,
-              ':'.join(str(time_searching / matches_played).split(':')[:2]), Fore.WHITE)
-        print("   Average match duration:" + Fore.CYAN,
-              ':'.join(str(time_in_match / matches_played).split(':')[:2]), Fore.WHITE)
+        print("   Average search duration:" + Fore.CYAN, str(time_searching / matches_played)[:-7], Fore.WHITE)
+        print("   Average match duration:" + Fore.CYAN, str(time_in_match / matches_played)[:-7], Fore.WHITE)
+
     print(Fore.WHITE + "Current Time:", end='')
     show_current_time()
