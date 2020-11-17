@@ -35,7 +35,8 @@ Currently supports FullHD and QHD screens
 0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.41.zip) and unzip it anywhere
 1. Make sure you have python installed
 2. Execute -> Installer.bat
-3. Valorant -> Settings -> Video -> Display Mode: **Windowed**;  
+3. Valorant -> Settings -> General -> Text Language: **English (United States)**
+4. Valorant -> Settings -> Video -> Display Mode: **Windowed**;  
 Resolution: your native resolution, so game should be on whole screen, but in window  
 ### Additional:
 - If you want script to launch Valorant for you - set `valorant_is_opened` in /scripts/settings.py to `False`,  
