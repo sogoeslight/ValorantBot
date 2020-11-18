@@ -125,7 +125,6 @@ def check_rewards():
 
 
 def press_play_again():
-    # m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .935)
     find_and_click_on('/play_again_1.png', .85, s.region_maker(.445, .915, .04, .04), '"Play again" pressed',
                       '/play_again_2.png', third_pic='/play_again_3.png')
 

@@ -12,8 +12,14 @@ def region_maker(x, y, x2, y2):
 
 
 def locate_center_on_screen(pic, conf, reg=None):
-    return pyautogui.locateCenterOnScreen('../resources/' + settings.resolution_string + pic, reg, confidence=conf)
+    try:
+        return pyautogui.locateCenterOnScreen('../resources/' + settings.resolution_string + pic, reg, confidence=conf)
+    except IndexError:
+        pass
 
 
 def locate_on_screen(pic, conf, reg=None):
-    return pyautogui.locateOnScreen('../resources/' + settings.resolution_string + pic, reg, confidence=conf)
+    try:
+        return pyautogui.locateOnScreen('../resources/' + settings.resolution_string + pic, reg, confidence=conf)
+    except IndexError:
+        pass
