@@ -125,16 +125,15 @@ def check_rewards():
 
 
 def press_play_again():
-    m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .935)
-    print(Fore.LIGHTGREEN_EX + '"Play again" pressed' + Fore.WHITE)
-    # region = s.region_maker(.35, .85, .27, .15)
-    # pyautogui.screenshot(region=region).save("../resources/press_play_again.png")
-    # find_and_click_on('/play_again.png', 0.99, '"Play again" pressed', region, '/play_again_1.png', 0.1)
+    # m.click_on_center(settings.resolution_x / 2, settings.resolution_y * .935)
+    find_and_click_on('/play_again_1.png', .85, s.region_maker(.445, .915, .04, .04), '"Play again" pressed',
+                      '/play_again_2.png', third_pic='/play_again_3.png')
 
 
-def find_and_click_on(pic, conf, region, message=None, second_pic=None, speed=None, amount_of_clicks=None, delay=None):
+def find_and_click_on(pic, conf, region, message=None, second_pic=None, speed=None, amount_of_clicks=None, delay=None,
+                      third_pic=None):
     x = None
-    while (x is None) & (conf > .6):
+    while (x is None) & (conf > .7):
         try:
             click_on(pic, conf, message, region, speed, amount_of_clicks)
             break
@@ -143,7 +142,11 @@ def find_and_click_on(pic, conf, region, message=None, second_pic=None, speed=No
                 try:
                     click_on(second_pic, conf, message, region, speed, amount_of_clicks)
                 except TypeError:
-                    pass
+                    if third_pic is not None:
+                        try:
+                            click_on(third_pic, conf, message, region, speed, amount_of_clicks)
+                        except TypeError:
+                            pass
 
         if delay is not None:
             time.sleep(delay)
