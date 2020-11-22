@@ -30,6 +30,9 @@ Currently supports FullHD and QHD screens
 *Do not forget to check "Add Python to PATH"
 - [PC](https://downloadmoreram.com/ "Go on, do it")
 - Screen
+- If you are using *Windows 10 Pro **N*** you need to add **Media Feature Pack** by going to  
+`Start > Settings > Apps > Apps and features > Optional features > Add a feature`,  
+ and then locate Media Feature Pack in the list of available optional features.
 
 ## Setup:
 0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.41.zip) and unzip it anywhere
