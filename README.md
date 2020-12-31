@@ -69,11 +69,7 @@ Since bot is graphically-based, if anything doesn't work for you - try next grap
 ### You would help to this project by
 - Simply leaving a star on this repo
 - [Buying me a pizza](https://www.buymeacoffee.com/SoGoesLight)
-<form action="https://www.paypal.com/donate" method="post" target="_top">
-<input type="hidden" name="hosted_button_id" value="UT48PZQVMB5XQ" />
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_LV/i/scr/pixel.gif" width="1" height="1" />
-</form>
+- [Donating any amount](https://www.paypal.com/donate/?hosted_button_id=JDHGX3H6NL9LA)
 
 ### Contacts:
 [E-mail](mailto:SoGoesLight@gmail.com)  
