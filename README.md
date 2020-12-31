@@ -1,6 +1,6 @@
 # Valorant bot
 
-### Features! (v1.11 compatible :heavy_check_mark:)
+### Features! (v1.14 compatible :heavy_check_mark:)
 - Done:
     - Anti-afk simulation!
     - Relaunches game in case of error and continues working!

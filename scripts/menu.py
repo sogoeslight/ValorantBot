@@ -51,7 +51,8 @@ def close_lobby():
 
 
 def start_search():
-    find_and_click_on('/small_start.png', .8, s.region_maker(.38, .835, .22, .13), "Searching game...")
+    find_and_click_on('/small_start.png', .8, s.region_maker(.38, .835, .22, .13), "Searching game...",
+                      '/small_start_1.png')
 
 
 def queueing(again):
