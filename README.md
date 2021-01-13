@@ -19,7 +19,7 @@
     - Special mode "Bilbo Teabaggins"
 
 
-Supposed only for Deathmatches
+Supposed only for Deathmatches  
 Currently supports FullHD and QHD screens
 
 ---
