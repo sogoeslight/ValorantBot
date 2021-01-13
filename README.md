@@ -1,16 +1,18 @@
 # Valorant bot
 
 ### Features! (Valorant v2.00 compatible :heavy_check_mark:)
-- Done:
+- Completely safe UI bot, NOT a single injection to the game files - 0 bans since since beginning of September.
+
+- Already done:
     - Anti-afk simulation!
     - Relaunches game in case of error and continues working!
     - Handles updates too!
     - Statistics!
-    - 0 bans since since beginning of September!
     - ...
     - Goes well with pizza!
+    
 - Coming soon:
-    - Timer
+    - Timer with exit function
     - Support of different game modes
     - Trigger bot
     - App interface
