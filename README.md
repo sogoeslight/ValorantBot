@@ -6,7 +6,7 @@
 - Already done:
     - Anti-afk simulation!
     - Relaunches game in case of error and continues working!
-    - Handles updates too!
+    - Handles game updates too!
     - Statistics!
     - ...
     - Goes well with pizza!
