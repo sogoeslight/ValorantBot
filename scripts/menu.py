@@ -42,8 +42,7 @@ def press_play():
 
 
 def select_game_mode():
-    find_and_click_on('/deathmatch.png', .75, s.region_maker(.51, .08, .125, .05), "Game mode selected",
-                      '/deathmatch_1.png')
+    find_and_click_on('/deathmatch.png', .75, s.region_maker(.51, .08, .125, .05), "Game mode selected")
 
 
 def close_lobby():
