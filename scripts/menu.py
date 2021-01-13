@@ -1,10 +1,8 @@
 import time
 import stats
 import settings
-import threading
 import ingame_error as err
 from colorama import Fore
-from helpers import colors
 from datetime import datetime
 from helpers import mouse as m
 from helpers import keyboard as k
@@ -88,7 +86,7 @@ def queueing(again):
 
 # TODO: catch error and get this error pic and location
 def check_chat_error():
-    screen.shot('../resources/temp/control_picture_1.png', 290, 1055, 20, 20)
+    s.shot('../resources/temp/control_picture_1.png', 290, 1055, 20, 20)
     if colors.compare_colors(colors.list_error_in_chat,
                              '../resources/temp/control_picture_1.png'):
         err.handle()
