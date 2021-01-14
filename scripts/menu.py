@@ -25,17 +25,17 @@ def start_game():
 def play_again():
     global is_in_menu
     is_in_menu = True
-    time.sleep(1)
-    press_play_again()
-    time.sleep(3)
+    time.sleep(2)
     check_rewards()
+    time.sleep(1.2)
+    press_play_again()
     err.error_checker_thread.do_run = True
     err.checker_thread()
     queueing(True)
 
 
 def press_play():
-    find_and_click_on('/play.png', .9, s.region_maker(.4, .02, .17, .05), "Play button pressed", None,
+    find_and_click_on('/play.png', .85, s.region_maker(.4, .02, .17, .05), "Play button pressed", None,
                       amount_of_clicks=2)
 
 
