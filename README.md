@@ -22,8 +22,8 @@
 Supposed only for Deathmatches  
 Currently supports FullHD and QHD screens
 
-## ! Important disclaimer !
-- Since we all have a different graphic settings - you can always just make your own screenshots and replace mine in the folder, according, to your resolution (full/qhd).
+## !!! Important disclaimer !!!
+- Since we all have a different graphic settings - you can always just make your own screenshots and replace the default ones in the folder, according, to your resolution (full/qhd).
 
 ---
 
