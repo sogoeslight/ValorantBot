@@ -1,7 +1,7 @@
 # Valorant bot
 
 ### Features! (Valorant v2.08 compatible :heavy_check_mark:)
-- Completely safe UI bot, NOT a single injection to the game files - 0 bans since beginning of September.
+- Completely safe UI bot, NOT a single injection to the game files - 0 bans since the beginning of September.
 
 - Already done:
     - Anti-afk simulation!
