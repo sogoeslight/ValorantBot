@@ -25,10 +25,10 @@ def start_game():
 def play_again():
     global is_in_menu
     is_in_menu = True
-    time.sleep(2)
-    check_rewards()
-    time.sleep(1.2)
+    time.sleep(1.5)
     press_play_again()
+    time.sleep(3)
+    check_rewards()
     err.error_checker_thread.do_run = True
     err.checker_thread()
     queueing(True)
