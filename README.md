@@ -40,7 +40,7 @@ Currently supports FullHD and QHD screens
  and then locate Media Feature Pack in the list of available optional features.
 
 ## Setup:
-0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.43.zip) and unzip it anywhere
+0. [**Download latest release**](https://github.com/sogoeslight/ValorantBot/archive/1.44.zip) and unzip it anywhere
 1. Make sure you have python installed
 2. Execute -> Installer.bat
 3. Valorant -> Settings -> General -> Text Language: **English (United States)**
