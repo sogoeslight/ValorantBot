@@ -1,7 +1,7 @@
 # Valorant bot
 
-### Features! (Valorant v2.00 compatible :heavy_check_mark:)
-- Completely safe UI bot, NOT a single injection to the game files - 0 bans since beginning of September.
+### Features! (Valorant v3.00 compatible :heavy_check_mark:)
+- Completely safe UI bot, NOT a single injection to the game files - 0 bans since the beginning of September.
 
 - Already done:
     - Anti-afk simulation!
@@ -21,6 +21,9 @@
 
 Supposed only for Deathmatches  
 Currently supports FullHD and QHD screens
+
+## !!! Important disclaimer !!!
+- Since we all have a different graphic settings - you can always just make your own screenshots and replace the default ones in the folder, according, to your resolution (full/qhd).
 
 ---
 
