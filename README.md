@@ -1,6 +1,6 @@
 # Valorant bot
 
-### Features! (Valorant v3.00 compatible :heavy_check_mark:)
+### Features! (Valorant v3.1 compatible :heavy_check_mark:)
 - Completely safe UI bot, NOT a single injection to the game files - 0 bans since the beginning of September.
 
 - Already done:
